@@ -8,7 +8,6 @@ import { InfoComponent }        from './info/info.component';
 import { TrailsComponent }     from './trails/trails.component';
 import { MediaComponent }       from './media/media.component';
 import { ContactComponent }     from './contact/contact.component';
-//import { EventDetailComponent } from './event-detail/event-detail.component';
 
 const routes: Routes = [
   { path: '',             component: HomeComponent },
