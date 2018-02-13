@@ -1,0 +1,107 @@
+// Color
+// --------------------------------
+
+$color: (
+  "brand-primary": #B1142C,
+  "brand-secondary": #000000,
+  "font": #1a1919,
+  "black": #000,
+  "white": #fff,
+  "grey": #979797,
+  "md-grey": #4A4A4A,
+  "input-placeholder": #8f8f8f,
+  "light-border": #d9d9d9,
+  "basket-border": #ebeaea,
+  "social-facebook": #3b5998,
+  "inactive-tab": #bebbbb,
+  "dashed-border": #bebfbe,
+  "header-border": #f1f1f1,
+  "charcoal": #1a1f1b
+);
+
+
+// Typography
+// --------------------------------
+
+$font: (
+  "size": 16px,
+  "line-height": 1.4,
+  "knockout-27": ("Knockout 27 A", "Knockout 27 B", sans-serif),
+  "knockout-32": ("Knockout 32 A", "Knockout 32 B", sans-serif),
+  "knockout-49": ("Knockout 49 A", "Knockout 49 B", sans-serif),
+  "knockout-68": ("Knockout 68 A", "Knockout 68 B", sans-serif),
+  "knockout-92": ("Knockout 92 A", "Knockout 92 B", sans-serif),
+  "open-sans": ("Open Sans", sans-serif),
+);
+
+
+// Grid
+// --------------------------------
+
+$am-columns: 12;
+
+$am-breakpoints: (
+  "xs": (
+    "container": fluid,
+    "padding": 1rem,
+    "width": 0px
+  ),
+  "sm": (
+    "container": fluid,
+    "padding": 1rem,
+    "width": 420px
+  ),
+  "md": (
+    "container": set,
+    "padding": 1.5rem,
+    "width": 768px
+  ),
+  "lg": (
+    "container": set,
+    "padding": 1.5rem,
+    "width": 992px
+  ),
+  "xl": (
+    "container": set,
+    "padding": 1.5rem,
+    "width": 1280px,
+  ),
+  "xxl": (
+    "container": set,
+    "padding": 1.5rem,
+    "width": 1440px
+  )
+);
+
+
+// Target breakpoints below x
+// --------------------------------
+
+$below-xs: "only screen and (max-width: #{map-get(map-get($am-breakpoints, xs), width) - 1px})";
+
+$below-xxl: "only screen and (max-width: #{map-get(map-get($am-breakpoints, xxl), width)})";
+
+
+// Target breakpoints above x
+// --------------------------------
+
+$above-xs: "only screen and (min-width: #{map-get(map-get($am-breakpoints, xs), width)})";
+$above-xxl: "only screen and (min-width: #{map-get(map-get($am-breakpoints, xxl), width)})";
+
+
+$high-contrast: "only screen and (-ms-high-contrast: active)";
+
+// UI
+// --------------------------------
+
+$ui: (
+  "transition": all .3s,
+  "transition-background": background .3s,
+  "transition-background-color": background-color .3s,
+  "transition-border-color": border-color .3s,
+  "transition-color": color .3s,
+  "transition-height": height .3s,
+  "transition-opacity": opacity .3s,
+  "transition-transform": transform .3s,
+  "transition-fill": fill .3s
+);
