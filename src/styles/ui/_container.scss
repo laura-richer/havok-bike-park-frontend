@@ -1,0 +1,13 @@
+// Container
+[am-section] {
+  padding: cRem(50) 0;
+
+  @media #{$above-lg} {
+    padding: cRem(90) 0;
+  }
+
+  &[am-bg~="dark"] {
+    background-color: map-get($color, "dark");
+    color: map-get($color, "white");
+  }
+}

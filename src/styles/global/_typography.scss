@@ -1,0 +1,111 @@
+// Fonts
+// --------------------------------
+
+@font-face {
+  font-family: 'Bebasneue';
+  src:
+       url('../assets/fonts/bebasneue/bebasneue_bold-webfont.woff2') format('woff2'),
+       url('../assets/fonts/bebasneue/bebasneue_bold-webfont.woff') format('woff'),
+       url('../assets/fonts/bebasneue/bebasneue_bold-webfont.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src:
+       url('../assets/fonts/opensans/regular/opensans-regular-webfont.woff2') format('woff2'),
+       url('../assets/fonts/opensans/regular/opensans-regular-webfont.woff') format('woff'),
+       url('../assets/fonts/opensans/regular/opensans-regular-webfont.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Open Sans Semi';
+  src:
+       url('../assets/fonts/opensans/semibold/opensans-semibold-webfont.woff2') format('woff2'),
+       url('../assets/fonts/opensans/semibold/opensans-semibold-webfont.woff') format('woff'),
+       url('../assets/fonts/opensans/semibold/opensans-semibold-webfont.ttf') format('truetype');
+}
+
+// General
+// --------------------------------
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  font-family: "Open Sans", Arial;
+  font-weight: 400;
+  color: map-get($color, "dark");
+}
+
+
+// Font sizes
+// --------------------------------
+
+h1,
+h2,
+h3,
+h5 {
+  font-family: "Bebasneue", Arial;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+h1,
+h2 {
+  font-size: cRem(48);
+  line-height: cRem(48);
+
+  @media #{$above-lg} {
+    font-size: cRem(70);
+    line-height: cRem(70);
+  }
+}
+
+h3 {
+  font-size: cRem(36);
+  line-height: cRem(36);
+
+  @media #{$above-lg} {
+    font-size: cRem(48);
+    line-height: cRem(48);
+  }
+}
+
+h4 {
+  font-size: cRem(20);
+  line-height: cRem(20);
+}
+
+p {
+  font-size: cRem(16);
+  line-height: cRem(23);
+  margin-bottom: cRem(25);
+}
+
+
+// Links
+// --------------------------------
+
+a {
+  text-decoration: underline;
+
+  &:hover {
+    @include animate(opacity, 0.3s, ease, 0s);
+  }
+}
+
+
+// Titles
+// --------------------------------
+
+[am-title] {
+  margin-bottom: cRem(40);
+  text-align: center;
+}
+
+[am-subtitle] {
+  margin-bottom: cRem(15);
+}

@@ -1,0 +1,27 @@
+// Header styles
+[am-footer~="wrapper"] {
+  display: block;
+  float: left;
+  width: 100%;
+  padding: cRem(20) 0;
+
+  p {
+    margin-bottom: 0;
+    font-size: cRem(14);
+
+    a {
+      font-family: "Open Sans Semi", Arial;
+      color: map-get($color, "dark");
+    }
+  }
+
+  @media #{$below-md} {
+    [am-align] {
+      text-align: left;
+    }
+
+    [am-col] {
+      margin-bottom: cRem(10);
+    }
+  }
+}

@@ -7,7 +7,11 @@ import { Router } from '@angular/router';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  private today;
+
+  constructor() {
+    this.today = Date.now();
+  }
 
   ngOnInit() {
   }

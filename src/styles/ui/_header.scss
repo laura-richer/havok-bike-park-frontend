@@ -1,0 +1,19 @@
+// Header styles
+[am-header] {
+  padding: cRem(10) cRem(50);
+  width: 100%;
+  height: 70px;
+
+  [am-logo] {
+    width: 200px;
+    float: left;
+
+    a {
+      display: block;
+
+      img {
+        width: 110px;
+      }
+    }
+  }
+}

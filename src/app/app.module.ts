@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule }      from '@angular/core';
+import { HttpClientModule }  from '@angular/common/http';
 
+
+// Componants
 import { AppComponent }     from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ContactComponent } from './contact/contact.component';
@@ -12,6 +15,9 @@ import { UserNavComponent } from './global/user-nav/user-nav.component';
 import { FooterComponent }  from './global/footer/footer.component';
 import { TrailsComponent }  from './trails/trails.component';
 
+// Directives
+import { ng2parallax }  from '../../node_modules/ang2-parallax/ng2-parallax-directive/parallax.directive';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,11 +28,13 @@ import { TrailsComponent }  from './trails/trails.component';
     ContactComponent,
     UserNavComponent,
     FooterComponent,
-    TrailsComponent
+    TrailsComponent,
+    ng2parallax
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

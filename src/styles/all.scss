@@ -2,3 +2,19 @@
 
 @import "./node_modules/node-normalize-scss/normalize",
         "./node_modules/bolser-am-strap/all";
+
+// Mixins
+@import "mixins/animate",
+        "mixins/rem";
+
+// Global styles
+@import "global/helpers",
+        "global/page",
+        "global/typography";
+
+// UI
+@import "ui/container",
+        "ui/footer",
+        "ui/header",
+        "ui/hero",
+        "ui/nav";

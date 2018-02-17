@@ -1,0 +1,23 @@
+// Hero styles
+[am-hero] {
+  margin: 0 cRem(25);
+  background-color: red;
+  height: 30vh;
+  background: url(../assets/images/homepage/hero-banner.jpg) no-repeat right bottom;
+  background-size: cover;
+
+  @media #{$above-sm} {
+    height: 40vh;
+  }
+
+  @media #{$above-md} {
+    height: 55vh;
+    background-size: cover;
+  }
+
+  @media #{$above-lg} {
+    height: 70vh;
+    background: url(../assets/images/homepage/hero-banner.jpg) no-repeat center center;
+    background-size: cover;
+  }
+}

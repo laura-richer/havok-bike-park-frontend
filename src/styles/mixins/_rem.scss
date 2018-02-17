@@ -1,0 +1,5 @@
+// REM calc function
+@function cRem($size) {
+  $remSize: $size / 16;
+  @return #{$remSize}rem;
+}
