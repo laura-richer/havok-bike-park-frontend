@@ -1,11 +1,13 @@
 <div am-footer="wrapper">
   <div am-col="sm-12 md-5" am-align="left">
       <ul am-nav="footer">
-        <li>
-          <a routerLink="/park-info">Opening Hours</a> <span>Saturday &amp; Sunday 10am - 5pm</span>
+        <li *ngFor="let footerNavItem of footerNavItems">
+          <a routerLink="{{footerNavItem.url}}">
+            {{footerNavItem.title}}
+
+            <span *ngIf="footerNavItem.title == 'Opening Hours'">Saturday &amp; Sunday 10am - 5pm</span>
+          </a>
         </li>
-        <li><a href="#">Membership Benefits</a></li>
-        <li><a href="#">Insurance</a></li>
       </ul>
     </div>
 
@@ -14,7 +16,7 @@
     </div>
 
     <div am-col="sm-12 md-5" am-align="right">
-      <p>&copy; Havok Bike Park {{ today | date:'yyyy' }}</p>
+      <p>&copy; {{ siteName }} {{ today | date:'yyyy' }}</p>
       <p>Web Design and Developent: <a href="http://www.lauraricher.co.uk" target="blank">Laura Richer</a></p>
     </div>
 </div>

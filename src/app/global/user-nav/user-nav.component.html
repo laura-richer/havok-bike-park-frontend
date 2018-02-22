@@ -1,7 +1,6 @@
 <ul am-nav="header">
-  <li><a routerLink="/events">Events</a></li>
-  <li><a routerLink="/park-info">Park Info</a></li>
-  <li><a routerLink="/trails">Trails</a></li>
-  <li><a routerLink="/media">Media</a></li>
-  <li><a routerLink="/contact">Contact</a></li>
+  <li *ngFor="let userNavItem of userNavItems">
+    <a routerLink="{{userNavItem.url}}">{{userNavItem.title}}</a>
+  </li>
 </ul>
+

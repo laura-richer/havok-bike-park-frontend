@@ -16,7 +16,8 @@ import { FooterComponent }  from './global/footer/footer.component';
 import { TrailsComponent }  from './trails/trails.component';
 
 // Directives
-import { ng2parallax }  from '../../node_modules/ang2-parallax/ng2-parallax-directive/parallax.directive';
+import { ng2parallax }    from '../../node_modules/ang2-parallax/ng2-parallax-directive/parallax.directive';
+import { ApiConnections } from './api-connections.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,7 @@ import { ng2parallax }  from '../../node_modules/ang2-parallax/ng2-parallax-dire
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [ApiConnections],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

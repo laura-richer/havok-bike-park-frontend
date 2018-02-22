@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router }            from '@angular/router';
+import { ApiConnections }    from '../../api-connections.service';
 
 @Component({
   selector: 'user-nav',
@@ -7,9 +8,14 @@ import { Router } from '@angular/router';
 })
 export class UserNavComponent implements OnInit {
 
-  constructor() { }
+  public userNavItems;
+
+  constructor(private apiConnections: ApiConnections) {}
 
   ngOnInit() {
+    this.apiConnections.getMenu("top")
+      .subscribe(data => {
+        this.userNavItems = data["items"];
+      });
   }
-
 }
