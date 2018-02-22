@@ -17,7 +17,10 @@ import { TrailsComponent }  from './trails/trails.component';
 
 // Directives
 import { ng2parallax }    from '../../node_modules/ang2-parallax/ng2-parallax-directive/parallax.directive';
-import { ApiConnections } from './api-connections.service';
+import { ApiConnections } from './services/api-connections.service';
+
+// Pipes
+import { EscapeHtmlPipe } from './pipes/keep-html.pipe';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,8 @@ import { ApiConnections } from './api-connections.service';
     UserNavComponent,
     FooterComponent,
     TrailsComponent,
-    ng2parallax
+    ng2parallax,
+    EscapeHtmlPipe
   ],
   imports: [
     BrowserModule,

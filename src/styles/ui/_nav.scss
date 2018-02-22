@@ -24,17 +24,24 @@
       display: inline;
       margin: 0 10px;
 
-      a {
-        &:hover {
+      @media #{$above-lg} {
+        a {
           &:before {
             content: "";
             position: absolute;
             display: block;
-            width: 100%;
+            width: 0;
             height: 2px;
             top: -26px;
             left: 0;
             background-color: map-get($color, "dark");
+            @include animate(width, 0.2s, ease, 0s);
+          }
+
+          &:hover {
+            &:before {
+              width: 100%;
+            }
           }
         }
       }

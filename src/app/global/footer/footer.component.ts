@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router }            from '@angular/router';
-import { ApiConnections }    from '../../api-connections.service';
+import { ApiConnections }    from '../../services/api-connections.service';
 
 @Component({
   selector: 'footer',
