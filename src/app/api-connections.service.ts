@@ -6,11 +6,13 @@ export class ApiConnections {
 
   private wpAPI;
   private menus;
+  private pages;
   private content;
 
   constructor(private http: HttpClient) {
     this.wpAPI = 'http://api.havokbikepark.com/wp-json/';
     this.menus = 'menus/v1/menus/';
+    this.pages = 'pages/';
     this.content ='wp/v2/'
   }
 
@@ -25,12 +27,12 @@ export class ApiConnections {
 
   // Get page data
   getPage(id){
-    return this.http.get('http://api.havokbikepark.com/wp-json/wp/v2/pages/' + id);
+    return this.http.get(this.wpAPI + this.content + this.pages + id);
   }
 
   // Get post list
   getPostList(id){
-    return this.http.get('http://api.havokbikepark.com/wp-json/wp/v2/pages/' + id);
+    return this.http.get(this.wpAPI + this.content + 'posts/' + id);
   }
 
 }
