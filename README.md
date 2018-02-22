@@ -1,6 +1,9 @@
 # HavokBikePark
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.2.
+Ensure Angular CLI is installed.
+
+Run `npm install -g @angular/cli` if install is needed
 
 ## Build Project
 
