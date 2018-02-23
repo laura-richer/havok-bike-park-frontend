@@ -16,7 +16,6 @@ import { FooterComponent }  from './global/footer/footer.component';
 import { TrailsComponent }  from './trails/trails.component';
 
 // Directives
-import { ng2parallax }    from '../../node_modules/ang2-parallax/ng2-parallax-directive/parallax.directive';
 import { ApiConnections } from './services/api-connections.service';
 
 // Pipes
@@ -33,7 +32,6 @@ import { EscapeHtmlPipe } from './pipes/keep-html.pipe';
     UserNavComponent,
     FooterComponent,
     TrailsComponent,
-    ng2parallax,
     EscapeHtmlPipe
   ],
   imports: [
