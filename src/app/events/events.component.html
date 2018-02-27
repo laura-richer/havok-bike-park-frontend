@@ -1,6 +1,48 @@
-<h2>Events</h2>
-<ul>
-  <li *ngFor="let event of events">
-    {{ event.title }}
-  </li>
-</ul>
+<div am-section am-bg="dark">
+  <div am-container>
+    <div am-row>
+      <div am-col="sm-12" am-align="center">
+        <h2 am-title>Events</h2>
+      </div>
+
+      <ul am-col="sm-12 lg-10" am-push="lg-1" am-event>
+        <li *ngFor="let event of events; let i=index" am-col="sm-12">
+
+          <!-- Odd layout -->
+          <div
+            *ngIf="i % 2 == 0"
+            am-image am-col="sm-4 md-5">
+            <img src="../assets/images/events/Events-dummy.jpg" title="#" alt="#"/>
+          </div>
+
+          <div
+            *ngIf="i % 2 == 0"
+            am-content am-col="sm-8 md-7">
+
+            <h3>{{ event.title }}</h3>
+            <p>{{ event.description }}</p>
+            <h4>{{ event.eventDate }}</h4>
+          </div>
+
+          <!-- Even Layout -->
+          <div
+            *ngIf="i % 2 == 1"
+            am-image am-col="sm-4 md-5" am-push="sm-8 md-7">
+            <img src="../assets/images/events/Events-dummy.jpg" title="#" alt="#"/>
+          </div>
+
+          <div
+            *ngIf="i % 2 == 1"
+            am-content am-col="sm-8 md-7" am-pull="sm-4 md-5">
+
+            <h3>{{ event.title }}</h3>
+            <p>{{ event.description }}</p>
+            <h4>{{ event.eventDate }}</h4>
+          </div>
+
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+

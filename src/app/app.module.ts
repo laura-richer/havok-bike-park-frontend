@@ -3,7 +3,7 @@ import { NgModule }      from '@angular/core';
 import { HttpClientModule }  from '@angular/common/http';
 
 
-// Componants
+// Components
 import { AppComponent }     from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ContactComponent } from './contact/contact.component';

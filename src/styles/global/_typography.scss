@@ -46,7 +46,7 @@ html {
 h1,
 h2,
 h3,
-h5 {
+h4 {
   font-family: "Bebasneue", Arial;
   letter-spacing: -1px;
   text-transform: uppercase;
@@ -80,9 +80,20 @@ h4 {
 }
 
 p {
-  font-size: cRem(16);
-  line-height: cRem(23);
-  margin-bottom: cRem(25);
+  font-size: cRem(14);
+  line-height: cRem(19);
+  margin-bottom: cRem(15);
+
+  @media #{$above-md} {
+    font-size: cRem(16);
+    line-height: cRem(23);
+    margin-bottom: cRem(25);
+  }
+}
+
+ul {
+  list-style: none;
+  margin: 0;
 }
 
 

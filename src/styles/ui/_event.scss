@@ -1,0 +1,76 @@
+// Event styles
+
+[am-event] {
+  li {
+    margin-bottom: cRem(45);
+
+    [am-image] {
+      position: relative;
+
+      &:after {
+        content: "";
+        position: absolute;
+        display: block;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 85%;
+        height: 100%;
+        margin: 0 auto;
+        background-color: map-get($color, "black");
+        z-index: 0;
+      }
+
+      img {
+        position: relative;
+        display: block;
+        opacity: .8;
+        z-index: 1;
+      }
+    }
+
+    [am-content] {
+      z-index: 2;
+      h3 {
+        padding: cRem(15) 0;
+      }
+    }
+
+    @media #{$above-sm} {
+      [am-content] {
+        h3 {
+          margin-left: -30%;
+        }
+      }
+
+      &:nth-child(even) {
+        text-align: right;
+        margin-right: -30%;
+
+        [am-content] {
+          h3 {
+            margin-right: -30%;
+          }
+        }
+      }
+    }
+
+    @media #{$above-md} {
+      [am-content] {
+        h3 {
+          padding: cRem(30) 0;
+        }
+      }
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &[am-event~="home"] {
+    li {
+      margin-bottom: 0;
+    }
+  }
+}

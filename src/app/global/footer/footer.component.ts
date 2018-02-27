@@ -8,12 +8,17 @@ import { ApiConnections }    from '../../services/api-connections.service';
 })
 export class FooterComponent implements OnInit {
 
+  private stripURL;
   private today;
   private siteName;
   private footerNavItems;
+  private openingTimes;
+  private facebookLink;
+  private instagramLink;
 
   constructor(private apiConnections: ApiConnections) {
     this.today = Date.now();
+
   }
 
   ngOnInit() {
@@ -25,6 +30,13 @@ export class FooterComponent implements OnInit {
     this.apiConnections.getMenu("social")
       .subscribe(data => {
         this.footerNavItems = data["items"];
+      });
+
+     this.apiConnections.getACFOptions()
+      .subscribe(data => {
+        this.openingTimes = data["acf"]["opening_times"];
+        this.facebookLink = data["acf"]["facebook_page"];
+        this.instagramLink = data["acf"]["instagram_page"];
       });
   }
 

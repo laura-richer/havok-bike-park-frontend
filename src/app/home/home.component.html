@@ -10,7 +10,7 @@
 
     <div am-row>
       <div am-col="sm-12 lg-7" am-offset="lg-2">
-        <div am-col="sm-12 md-8" [innerHTML]="about | keepHtml">
+        <div am-col="sm-12 md-10" [innerHTML]="about | keepHtml">
         </div>
       </div>
     </div>
@@ -20,9 +20,25 @@
 <div am-section am-bg="dark">
   <div am-container>
     <div am-row>
-      <div am-col>
+      <div am-col="sm-12" am-align="center">
         <h2 am-title>Next Event</h2>
       </div>
+
+      <ul am-col="sm-12 lg-10" am-push="lg-1" am-event="home">
+        <li *ngFor="let event of events | slice:0:1" am-col="sm-12">
+          <div am-image am-col="sm-4 md-5">
+            <img src="../assets/images/events/Events-dummy.jpg" title="#" alt="#"/>
+          </div>
+
+          <div am-content am-col="sm-8 md-7">
+
+            <h3>{{ event.title }}</h3>
+            <p>{{ event.description }}</p>
+            <h4>{{ event.eventDate }}</h4>
+          </div>
+
+        </li>
+      </ul>
     </div>
   </div>
 </div>

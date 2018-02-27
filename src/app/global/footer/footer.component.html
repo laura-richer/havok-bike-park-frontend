@@ -2,17 +2,20 @@
   <div am-col="sm-12 md-5" am-align="left">
       <ul am-nav="footer">
         <li *ngFor="let footerNavItem of footerNavItems">
-          <a routerLink="{{footerNavItem.url}}">
-            {{footerNavItem.title}}
+          <a routerLink="{{ footerNavItem.url.replace('http://api.havokbikepark.com', '') }}">
+            {{ footerNavItem.title }}
 
-            <span *ngIf="footerNavItem.title == 'Opening Hours'">Saturday &amp; Sunday 10am - 5pm</span>
+            <span *ngIf="footerNavItem.title == 'Opening Hours'">{{ openingTimes }}</span>
           </a>
         </li>
       </ul>
     </div>
 
     <div am-col="sm-12 md-2" am-align="center">
-      <p>Social</p>
+      <ul am-nav="social">
+        <li><a href="{{ facebookLink }}" target="blank">FB</a></li>
+        <li><a href="{{ instagramLink }}" target="blank">IG</a></li>
+      </ul>
     </div>
 
     <div am-col="sm-12 md-5" am-align="right">

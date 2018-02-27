@@ -8,12 +8,14 @@ export class ApiConnections {
   private menus;
   private pages;
   private content;
+  private acfOptions;
 
   constructor(private http: HttpClient) {
     this.wpAPI = 'http://api.havokbikepark.com/wp-json/';
     this.menus = 'menus/v1/menus/';
+    this.content ='wp/v2/';
     this.pages = 'pages/';
-    this.content ='wp/v2/'
+    this.acfOptions = 'acf/v2/options/'
   }
 
   getBasic() {
@@ -30,9 +32,9 @@ export class ApiConnections {
     return this.http.get(this.wpAPI + this.content + this.pages + id);
   }
 
-  // Get post list
-  getPostList(id){
-    return this.http.get(this.wpAPI + this.content + 'posts/' + id);
+  // Get ACF options
+  getACFOptions(){
+    return this.http.get(this.wpAPI + this.acfOptions);
   }
 
 }

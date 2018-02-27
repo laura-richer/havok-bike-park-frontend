@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EVENTS } from '../mock-events';
+import { EVENTS } from '../content/mock-events';
 
 @Component({
   selector: 'app-events',
