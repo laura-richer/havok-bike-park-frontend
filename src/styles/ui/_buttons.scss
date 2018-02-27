@@ -1,0 +1,13 @@
+// button styles
+
+[am-button] {
+  display: inline-block;
+  width: auto;
+  margin-top: cRem(50);
+  padding: cRem(15) cRem(70);
+  text-decoration: none;
+
+  @media #{$above-lg} {
+    margin-top: cRem(80);
+  }
+}

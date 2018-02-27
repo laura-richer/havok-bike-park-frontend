@@ -27,18 +27,23 @@
       <ul am-col="sm-12 lg-10" am-push="lg-1" am-event="home">
         <li *ngFor="let event of events | slice:0:1" am-col="sm-12">
           <div am-image am-col="sm-4 md-5">
-            <img src="../assets/images/events/Events-dummy.jpg" title="#" alt="#"/>
+            <img src="{{ event.acf.event_image }}" title="#" alt="#"/>
           </div>
 
           <div am-content am-col="sm-8 md-7">
 
-            <h3>{{ event.title }}</h3>
-            <p>{{ event.description }}</p>
-            <h4>{{ event.eventDate }}</h4>
+            <h3 [innerHTML]="event.title.rendered | keepHtml"></h3>
+            <p [innerHTML]="event.content.rendered | keepHtml"></p>
+            <h4>{{ event.acf.event_date }}</h4>
           </div>
 
         </li>
       </ul>
+      <div am-col="sm-12" am-align="center">
+        <a
+          routerLink="events"
+          am-button am-bg="light" am-color="white" am-hover="opacity">See all events</a>
+      </div>
     </div>
   </div>
 </div>

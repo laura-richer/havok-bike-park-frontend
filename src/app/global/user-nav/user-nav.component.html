@@ -1,6 +1,9 @@
 <ul am-nav="header">
   <li *ngFor="let userNavItem of userNavItems">
-    <a routerLink="{{ userNavItem.url.replace('http://api.havokbikepark.com', '') }}">{{ userNavItem.title }}</a>
+    <a
+      am-hover="top-line"
+      routerLink="{{ userNavItem.url.replace('http://api.havokbikepark.com', '') }}">
+      {{ userNavItem.title }}</a>
   </li>
 </ul>
 

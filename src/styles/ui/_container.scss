@@ -10,4 +10,14 @@
     background-color: map-get($color, "dark");
     color: map-get($color, "white");
   }
+
+  &[am-section~="park-info"] {
+    [am-park-info] {
+      margin-bottom: cRem(15);
+
+      h4 {
+        margin-bottom: cRem(20);
+      }
+    }
+  }
 }

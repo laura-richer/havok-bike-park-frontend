@@ -1,0 +1,33 @@
+// Colour styles
+
+[am-color~="white"] {
+  color: map-get($color, "white");
+}
+
+[am-color~="black"] {
+  color: map-get($color, "black");
+}
+
+[am-color~="light"] {
+  color: map-get($color, "light");
+}
+
+[am-color~="dark"] {
+  color: map-get($color, "dark");
+}
+
+[am-bg~="white"] {
+  background-color: map-get($color, "white");
+}
+
+[am-bg~="black"] {
+  background-color: map-get($color, "black");
+}
+
+[am-bg~="light"] {
+  background-color: map-get($color, "light");
+}
+
+[am-bg~="dark"] {
+  background-color: map-get($color, "dark");
+}

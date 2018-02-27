@@ -23,28 +23,6 @@
     li {
       display: inline;
       margin: 0 10px;
-
-      @media #{$above-lg} {
-        a {
-          &:before {
-            content: "";
-            position: absolute;
-            display: block;
-            width: 0;
-            height: 2px;
-            top: -26px;
-            left: 0;
-            background-color: map-get($color, "dark");
-            @include animate(width, 0.2s, ease, 0s);
-          }
-
-          &:hover {
-            &:before {
-              width: 100%;
-            }
-          }
-        }
-      }
     }
   }
 
@@ -66,6 +44,17 @@
           display: inline;
           margin: 0 0 0 20px;
         }
+      }
+    }
+  }
+
+  &[am-nav~="social"] {
+    li {
+      display: inline;
+
+      i {
+        font-size: cRem(22);
+        padding: 0 cRem(5);
       }
     }
   }

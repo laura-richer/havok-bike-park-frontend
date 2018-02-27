@@ -1,0 +1,43 @@
+// link styles
+
+@media #{$above-lg} {
+  [am-hover] {
+    &[am-hover~="color"] {
+      @include animate(color, .3s, ease, 0s);
+
+      &[am-hover~="light"] {
+        &:hover {
+          color: map-get($color, "light");
+        }
+      }
+    }
+
+    &[am-hover~="top-line"] {
+      &:before {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 0;
+        height: 2px;
+        top: -26px;
+        left: 0;
+        background-color: map-get($color, "dark");
+        @include animate(width, 0.2s, ease, 0s);
+      }
+
+      &:hover {
+        &:before {
+          width: 100%;
+        }
+      }
+    }
+
+    &[am-hover~="opacity"] {
+      @include animate(opacity, .7s, ease, 0s);
+
+      &:hover {
+        opacity: .6;
+      }
+    }
+  }
+}

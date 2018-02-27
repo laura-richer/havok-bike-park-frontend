@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EVENTS } from '../content/mock-events';
+import { ApiConnections }    from '../services/api-connections.service';
 
 @Component({
   selector: 'app-events',
@@ -7,11 +7,22 @@ import { EVENTS } from '../content/mock-events';
 })
 export class EventsComponent implements OnInit {
 
-  events = EVENTS;
+  public events;
+  public pageInfo;
 
-  constructor() { }
+  constructor(private apiConnections: ApiConnections) {}
 
   ngOnInit() {
+    this.apiConnections.getPage(7)
+      .subscribe(data => {
+        this.pageInfo = data;
+        console.log(this.pageInfo);
+      });
+
+    this.apiConnections.getCustomPost("events")
+      .subscribe(data => {
+        this.events = data;
+      });
   }
 
 }

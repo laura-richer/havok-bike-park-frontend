@@ -21,7 +21,6 @@ export class HomeComponent implements OnInit {
     this.apiConnections.getCustomPost("events")
       .subscribe(data => {
         this.events = data;
-        console.log(this.events);
       });
   }
 

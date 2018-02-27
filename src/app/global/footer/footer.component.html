@@ -2,7 +2,10 @@
   <div am-col="sm-12 md-5" am-align="left">
       <ul am-nav="footer">
         <li *ngFor="let footerNavItem of footerNavItems">
-          <a routerLink="{{ footerNavItem.url.replace('http://api.havokbikepark.com', '') }}">
+          <a
+            am-hover="color light"
+            routerLink="{{ footerNavItem.url.replace('http://api.havokbikepark.com', '') }}">
+
             {{ footerNavItem.title }}
 
             <span *ngIf="footerNavItem.title == 'Opening Hours'">{{ openingTimes }}</span>
@@ -12,14 +15,20 @@
     </div>
 
     <div am-col="sm-12 md-2" am-align="center">
-      <ul am-nav="social">
+      <ul am-nav="social" am-hover="light">
         <li>
-          <a href="{{ facebookLink }}" target="blank">
+          <a
+            am-hover="color light"
+            href="{{ facebookLink }}" target="blank">
+
             <i class="fa fa-facebook" aria-hidden="true"></i>
           </a>
         </li>
         <li>
-          <a href="{{ instagramLink }}" target="blank">
+          <a
+            am-hover="color light"
+            href="{{ instagramLink }}" target="blank">
+
             <i class="fa fa-instagram" aria-hidden="true"></i>
           </a>
         </li>
@@ -28,6 +37,6 @@
 
     <div am-col="sm-12 md-5" am-align="right">
       <p>&copy; {{ siteName }} {{ today | date:'yyyy' }}</p>
-      <p>Web Design and Developent: <a href="http://www.lauraricher.co.uk" target="blank">Laura Richer</a></p>
+      <p>Web Design and Developent: <a am-hover="color light" href="http://www.lauraricher.co.uk" target="blank">Laura Richer</a></p>
     </div>
 </div>
