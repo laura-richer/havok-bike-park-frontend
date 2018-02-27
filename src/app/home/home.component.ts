@@ -8,6 +8,7 @@ import { ApiConnections }    from '../services/api-connections.service';
 export class HomeComponent implements OnInit {
 
   public about;
+  public events;
 
   constructor(private apiConnections: ApiConnections) {}
 
@@ -15,6 +16,12 @@ export class HomeComponent implements OnInit {
     this.apiConnections.getPage(5)
       .subscribe(data => {
         this.about = data["content"]["rendered"];
+      });
+
+    this.apiConnections.getCustomPost("events")
+      .subscribe(data => {
+        this.events = data;
+        console.log(this.events);
       });
   }
 

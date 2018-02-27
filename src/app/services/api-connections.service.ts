@@ -35,4 +35,8 @@ export class ApiConnections {
     return this.http.get(this.wpAPI + this.content + 'posts/' + id);
   }
 
+  // Get post list
+  getCustomPost(slug){
+    return this.http.get(this.wpAPI + this.content + slug);
+  }
 }
