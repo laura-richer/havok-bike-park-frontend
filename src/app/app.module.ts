@@ -6,16 +6,19 @@ import { HttpClientModule }  from '@angular/common/http';
 // Componants
 import { AppComponent }     from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+
 import { ContactComponent } from './contact/contact.component';
 import { EventsComponent }  from './events/events.component';
 import { HomeComponent }    from './home/home.component';
 import { InfoComponent }    from './info/info.component';
 import { MediaComponent }   from './media/media.component';
-import { UserNavComponent } from './global/user-nav/user-nav.component';
-import { FooterComponent }  from './global/footer/footer.component';
 import { TrailsComponent }  from './trails/trails.component';
 
-// Directives
+// Global componants
+import { UserNavComponent } from './global/user-nav/user-nav.component';
+import { FooterComponent }  from './global/footer/footer.component';
+
+// Services
 import { ApiConnections } from './services/api-connections.service';
 
 // Pipes
