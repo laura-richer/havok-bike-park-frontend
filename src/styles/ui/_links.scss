@@ -1,6 +1,6 @@
 // link styles
 
-@media #{$above-lg} {
+@media #{$above-md} {
   [am-hover] {
     &[am-hover~="color"] {
       @include animate(color, .3s, ease, 0s);

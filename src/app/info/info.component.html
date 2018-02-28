@@ -1,8 +1,11 @@
+<agm-map [latitude]="lat" [longitude]="lng" [zoom]="9">
+  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+</agm-map>
 <div am-section="park-info" am-bg="white">
   <div am-container>
     <div am-row>
       <div am-col="sm-12" am-align="center">
-        <h2 am-title>{{ pageInfo.title.rendered }}</h2>
+        <!--<h2 am-title>{{ pageInfo.title.rendered }}</h2>-->
       </div>
 
       <div am-park-info am-col="sm-12" am-align="center">
@@ -23,3 +26,4 @@
     </div>
   </div>
 </div>
+<footer-images></footer-images>
