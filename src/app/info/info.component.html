@@ -1,11 +1,11 @@
-<agm-map [latitude]="lat" [longitude]="lng" [zoom]="9">
-  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+<agm-map [latitude]="lat" [longitude]="lng" [zoom]="10">
+  <agm-marker [iconUrl]="'./assets/images/icons/google-map-marker.png'" [latitude]="lat" [longitude]="lng"></agm-marker>
 </agm-map>
 <div am-section="park-info" am-bg="white">
   <div am-container>
     <div am-row>
       <div am-col="sm-12" am-align="center">
-        <!--<h2 am-title>{{ pageInfo.title.rendered }}</h2>-->
+        <h2 am-title>{{ pageTitle }}</h2>
       </div>
 
       <div am-park-info am-col="sm-12" am-align="center">
@@ -16,6 +16,7 @@
       <div am-park-info am-col="sm-12" am-align="center">
         <h4>Prices</h4>
         <div [innerHTML]="prices | keepHtml"></div>
+        <p>Find out more about a <a routerLink="#" am-color="dark" am-hover="color light">membership</a>.</p>
       </div>
 
       <div am-park-info am-col="sm-12" am-align="center">

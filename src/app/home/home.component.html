@@ -34,7 +34,7 @@
 
             <h3 [innerHTML]="event.title.rendered | keepHtml"></h3>
             <p [innerHTML]="event.content.rendered | keepHtml"></p>
-            <h4>{{ event.acf.event_date }}</h4>
+            <h4>{{ event.acf.event_date | date:'fullDate' }}</h4>
           </div>
 
         </li>

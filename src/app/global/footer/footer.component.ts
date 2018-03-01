@@ -17,7 +17,7 @@ export class FooterComponent implements OnInit {
   private instagramLink;
 
   constructor(private apiConnections: ApiConnections) {
-    this.today = Date.now();
+    this.today = new Date().getFullYear();
 
   }
 

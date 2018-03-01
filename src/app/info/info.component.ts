@@ -12,12 +12,11 @@ export class InfoComponent implements OnInit {
   public lng: number = -2.1534588;
 
   private pageInfo;
+  private pageTitle: string;
   private openingTimes;
   private prices;
   private address;
   private emailAddress;
-  public latitude: number;
-  public longitude: number;
 
   constructor(private apiConnections: ApiConnections) {}
 
@@ -25,7 +24,7 @@ export class InfoComponent implements OnInit {
     this.apiConnections.getPage(9)
       .subscribe(pageInfo => {
         this.pageInfo = pageInfo;
-        console.log(this.pageInfo);
+        this.pageTitle = this.pageInfo.title.rendered;
       });
 
      this.apiConnections.getACFOptions()

@@ -22,6 +22,7 @@ import { FooterImagesComponent } from './global/footer-images/footer-images.comp
 
 // Services
 import { ApiConnections } from './services/api-connections.service';
+///import { ArraySort }      from './services/array-sort.service';
 
 // Pipes
 import { EscapeHtmlPipe } from './pipes/keep-html.pipe';
