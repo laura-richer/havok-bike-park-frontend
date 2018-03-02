@@ -22,7 +22,7 @@ import { FooterImagesComponent } from './global/footer-images/footer-images.comp
 
 // Services
 import { ApiConnections } from './services/api-connections.service';
-///import { ArraySort }      from './services/array-sort.service';
+import { ArraySort }      from './services/array-sort.service';
 
 // Pipes
 import { EscapeHtmlPipe } from './pipes/keep-html.pipe';
@@ -49,7 +49,10 @@ import { EscapeHtmlPipe } from './pipes/keep-html.pipe';
       apiKey: 'AIzaSyCjtTzm9pCIiWoQM0PHHIDFWn1RED7SdOM'
     })
   ],
-  providers: [ApiConnections],
+  providers: [
+    ApiConnections,
+    ArraySort
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
