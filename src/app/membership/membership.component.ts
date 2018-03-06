@@ -1,0 +1,14 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-membership',
+  templateUrl: './membership.component.html'
+})
+export class MembershipComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}

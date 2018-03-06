@@ -8,6 +8,7 @@ import { InfoComponent }        from './info/info.component';
 import { TrailsComponent }      from './trails/trails.component';
 import { MediaComponent }       from './media/media.component';
 import { ContactComponent }     from './contact/contact.component';
+import { MembershipComponent }  from './membership/membership.component';
 
 const routes: Routes = [
   { path: '',             component: HomeComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'trails',       component: TrailsComponent },
   { path: 'media',        component: MediaComponent },
   { path: 'contact',      component: ContactComponent },
+  { path: 'membership',   component: MembershipComponent },
 ];
 
 @NgModule({
