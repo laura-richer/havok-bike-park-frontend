@@ -21,12 +21,15 @@
         am-push="md-2 lg-3"
         am-align="left">
 
-        <div [innerHTML]="benefitsIntro | keepHtml"></div>
+        <div am-park-info>
+          <h4 am-align="center">Membership Benefits</h4>
 
-        <ul>
-          <li *ngFor="let benefit of benefits">{{ benefit.benefit_point }}</li>
-        </ul>
+          <div [innerHTML]="benefitsIntro | keepHtml"></div>
 
+          <ul>
+            <li *ngFor="let benefit of benefits">{{ benefit.benefit_point }}</li>
+          </ul>
+        </div>
       </div>
     </div>
 
