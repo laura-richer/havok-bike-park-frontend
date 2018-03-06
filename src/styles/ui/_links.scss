@@ -35,7 +35,8 @@
     &[am-hover~="opacity"] {
       @include animate(opacity, .7s, ease, 0s);
 
-      &:hover {
+      &:hover,
+      &:disabled {
         opacity: .6;
       }
     }

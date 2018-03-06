@@ -1,0 +1,17 @@
+// Masonary styles
+[am-masonary] {
+  margin: 0 cRem(23);
+}
+
+.brick {
+  width: 50%;
+  padding: 0 2px;
+
+  img {
+    width: 100%;
+  }
+
+  @media #{$above-md} {
+    width: 25%;
+  }
+}

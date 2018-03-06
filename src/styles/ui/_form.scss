@@ -1,0 +1,33 @@
+//Form styles
+
+[am-form] {
+  [am-form~="row"] {
+    width: 100%;
+
+    label {
+      display: none;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      border: none;
+      padding: cRem(15);
+      margin-bottom: cRem(20);
+
+      &.invalid {
+        outline: 2px inset #f27373;
+
+      }
+    }
+
+    textarea {
+      height: 150px;
+    }
+
+    [am-button] {
+      display: block;
+      margin-top: 0;
+    }
+  }
+}

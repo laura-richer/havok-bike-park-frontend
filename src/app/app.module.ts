@@ -1,12 +1,14 @@
-import { BrowserModule }    from '@angular/platform-browser';
-import { NgModule }         from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
-import { AgmCoreModule }    from '@agm/core';
+import { BrowserModule }                    from '@angular/platform-browser';
+import { NgModule }                         from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule }                 from '@angular/common/http';
+import { AgmCoreModule }                    from '@agm/core';
 
 
 // Components
 import { AppComponent }     from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { MasonryModule }    from '../../node_modules/angular2-masonry';
 
 import { ContactComponent } from './contact/contact.component';
 import { EventsComponent }  from './events/events.component';
@@ -26,6 +28,7 @@ import { ArraySort }      from './services/array-sort.service';
 
 // Pipes
 import { EscapeHtmlPipe } from './pipes/keep-html.pipe';
+import { DateFormatPipe } from './pipes/date-format.pipe';
 
 @NgModule({
   declarations: [
@@ -39,12 +42,16 @@ import { EscapeHtmlPipe } from './pipes/keep-html.pipe';
     FooterComponent,
     FooterImagesComponent,
     TrailsComponent,
-    EscapeHtmlPipe
+    EscapeHtmlPipe,
+    DateFormatPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
+    MasonryModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCjtTzm9pCIiWoQM0PHHIDFWn1RED7SdOM'
     })
@@ -55,4 +62,4 @@ import { EscapeHtmlPipe } from './pipes/keep-html.pipe';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

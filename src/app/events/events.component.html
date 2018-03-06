@@ -20,8 +20,8 @@
             am-content am-col="sm-8 md-7">
 
             <h3 [innerHTML]="event.title.rendered | keepHtml"></h3>
-            <p [innerHTML]="event.content.rendered | keepHtml"></p>
-            <h4>{{ event.acf.event_date }}</h4>
+            <div [innerHTML]="event.content.rendered | keepHtml"></div>
+            <h4>{{ event.acf.event_date | dateFormat }}</h4>
           </div>
 
           <!-- Even Layout -->
@@ -36,8 +36,8 @@
             am-content am-col="sm-8 md-7" am-pull="sm-4 md-5">
 
             <h3 [innerHTML]="event.title.rendered | keepHtml"></h3>
-            <p [innerHTML]="event.content.rendered | keepHtml"></p>
-            <h4>{{ event.acf.event_date }}</h4>
+            <div [innerHTML]="event.content.rendered | keepHtml"></div>
+            <h4>{{ event.acf.event_date | dateFormat }}</h4>
           </div>
 
         </li>

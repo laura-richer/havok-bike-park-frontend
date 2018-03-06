@@ -1,3 +1,8 @@
-<p>
-  media works!
-</p>
+<div am-masonary>
+  <masonry [useImagesLoaded]="true">
+    <masonry-brick class="brick" *ngFor="let mediaItem of media">
+      <img
+        src="{{ fbAPI }}{{ mediaItem.id }}/picture?access_token={{ apiKey }}" />
+    </masonry-brick>
+  </masonry>
+</div>

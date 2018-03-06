@@ -10,4 +10,8 @@
   @media #{$above-lg} {
     margin-top: cRem(80);
   }
+
+  &:hover {
+    cursor: pointer;
+  }
 }

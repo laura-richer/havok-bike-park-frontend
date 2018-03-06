@@ -33,8 +33,8 @@
           <div am-content am-col="sm-8 md-7">
 
             <h3 [innerHTML]="event.title.rendered | keepHtml"></h3>
-            <p [innerHTML]="event.content.rendered | keepHtml"></p>
-            <h4>{{ event.acf.event_date | date:'fullDate' }}</h4>
+            <div [innerHTML]="event.content.rendered | keepHtml"></div>
+            <h4>{{ dateFormatted }}</h4>
           </div>
 
         </li>

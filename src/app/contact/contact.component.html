@@ -1,5 +1,61 @@
-<p>
-  contact works!
-</p>
+<div am-section am-bg="dark">
+  <div am-container>
+    <div am-row>
+      <div am-col="sm-12" am-align="center">
+        <h2 am-title am-color="white">{{ pageTitle }}</h2>
+      </div>
+    </div>
+  </div>
 
+  <div am-container>
+    <div am-row>
+      <div am-col="sm-12 md-8 lg-6" am-push="md-2 lg-3" am-align="center">
+        <form am-form [formGroup]="contactForm" (ngSubmit)="contactFormSubmit()">
+          <div am-form="row">
+            <label for="fullName">Name</label>
+            <input
+              formControlName="fullName"
+              type="text"
+              id="fullName"
+              placeholder="Name*"
+              [class.invalid]="!contactForm.controls.fullName.valid && (contactForm.controls.fullName.dirty || submitAttempt)"
+              required/>
+          </div>
+
+          <div am-form="row">
+            <label for="emailAddress">Email Address</label>
+            <input
+              formControlName="emailAddress"
+              type="text"
+              id="emailAddress"
+              placeholder="Email Address*"
+              [class.invalid]="!contactForm.controls.emailAddress.valid && (contactForm.controls.emailAddress.dirty || submitAttempt)"
+              required/>
+          </div>
+
+          <div am-form="row">
+            <label for="phoneNumber">Phone Number</label>
+            <input
+              formControlName="phoneNumber"
+              type="text"
+              id="phoneNumber"
+              placeholder="Phone Number"/>
+          </div>
+
+          <div am-form="row">
+            <label for="message">Message</label>
+            <textarea
+              formControlName="message"
+              id="message"
+              placeholder="Message"></textarea>
+          </div>
+
+          <div am-form="row">
+            <button [disabled]="!contactForm.valid" type="submit" am-button am-bg="light" am-color="white" am-hover="opacity">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 <footer-images></footer-images>

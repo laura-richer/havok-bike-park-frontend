@@ -26,7 +26,7 @@ export class ApiConnections {
     // Facebook API paths
     this.fbAPI = 'https://graph.facebook.com/'
     this.userId = '294138224007098/';
-    this.apiKey = 'EAACEdEose0cBAHoDGPkimrQ6JBYdpYoaCCUZBbnbYdGFEsW1aVzrtZBBscPeLZCAmmABPWHTg26soJ1FLEJHdQphUfPyXPcoGaexQm6KTB6BxCZC9ZBXsTCPmnlhPPXaZA02DETFTfJnBjoNDMQdof9ooK4JnLnoWIOA9cDHf3viUnEFbAACuApSBUe8hFCKcZD';
+    this.apiKey = 'EAACEdEose0cBAPJiWjFXgB7nC43zZC2DH2JWlogSg7kyGOOdjBLaLpLo4lL9wVH3ZA9qplpMglZAUB192JQ1bi4QeWAtMMufZCUjZAIwTmn36lBZBzb8MkGYmyXjVQ0ZBnD9duMZBtTIZC0NPmQxXhVPDdAEfIhrHi0ND4N5FCydUQ32RtoSdtEhDZASxjcBhImBQZD';
   }
 
   getBasic() {
@@ -54,7 +54,17 @@ export class ApiConnections {
   }
 
   // Get Facebook info
-  getFacebook(slug) {
-    return this.http.get(this.fbAPI + this.userId + slug + '?access_token=' + this.apiKey);
+  getFacebookList(slug) {
+    return this.http.get(this.fbAPI + this.userId + slug + this.apiKey);
+  }
+
+  // Get Facebook info
+  getFacebookPhotoObject(id) {
+    return this.http.get(this.fbAPI + id + "/picture?access_token=" + this.apiKey);
+  }
+
+  // Get Facebook info
+  getFacebookVideoThumbnails(slug) {
+    return this.http.get(this.fbAPI + slug + this.apiKey);
   }
 }

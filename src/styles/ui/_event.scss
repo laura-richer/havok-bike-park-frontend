@@ -1,4 +1,12 @@
 // Event styles
+// Calcs for truncation
+
+$font-size: 14px;
+$line-height: 1.1;
+$font-size-md: 16px;
+$line-height-md: 1.4375;
+$lines-to-show: 5;
+$lines-to-show-md: 4;
 
 [am-event] {
   li {
@@ -41,6 +49,16 @@
         h3 {
           margin-left: -30%;
         }
+
+        p {
+          display: -webkit-box;
+          max-width: 100%;
+          height: $font-size*$line-height*$lines-to-show;
+          -webkit-line-clamp: $lines-to-show;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
       }
 
       &:nth-child(even) {
@@ -59,6 +77,11 @@
       [am-content] {
         h3 {
           padding: cRem(30) 0;
+        }
+
+        p {
+          height: $font-size-md*$line-height-md*$lines-to-show-md;
+          -webkit-line-clamp: $lines-to-show-md;
         }
       }
     }
