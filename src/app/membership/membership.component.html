@@ -1,0 +1,46 @@
+<div am-section="park-info" am-bg="white">
+  <div am-container>
+    <div am-row>
+      <div am-col="sm-12" am-align="center">
+        <h2 am-title>{{ pageTitle }}</h2>
+      </div>
+    </div>
+
+    <div am-row>
+      <div
+        am-col="sm=12 lg-8"
+        am-push="lg-2"
+        am-align="center"
+        [innerHTML]="mainCopy | keepHtml">
+      </div>
+    </div>
+
+    <div am-row>
+      <div
+        am-col="sm=12 md-8 lg-6"
+        am-push="md-2 lg-3"
+        am-align="left">
+
+        <div am-park-info>
+          <h4 am-align="center">Membership Benefits</h4>
+
+          <div [innerHTML]="benefitsIntro | keepHtml"></div>
+
+          <ul am-list>
+            <li *ngFor="let benefit of benefits">{{ benefit.benefit_point }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div am-row>
+      <div
+        am-col="sm=12 lg-8"
+        am-push="lg-2"
+        am-align="center"
+        [innerHTML]="subParagraph | keepHtml">
+      </div>
+    </div>
+  </div>
+</div>
+<footer-images></footer-images>

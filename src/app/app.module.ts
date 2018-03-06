@@ -16,6 +16,8 @@ import { HomeComponent }    from './home/home.component';
 import { InfoComponent }    from './info/info.component';
 import { MediaComponent }   from './media/media.component';
 import { TrailsComponent }  from './trails/trails.component';
+import { MembershipComponent } from './membership/membership.component';
+
 
 // Global componants
 import { UserNavComponent }      from './global/user-nav/user-nav.component';
@@ -29,6 +31,7 @@ import { ArraySort }      from './services/array-sort.service';
 // Pipes
 import { EscapeHtmlPipe } from './pipes/keep-html.pipe';
 import { DateFormatPipe } from './pipes/date-format.pipe';
+import { MembershipComponent } from './membership/membership.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +46,8 @@ import { DateFormatPipe } from './pipes/date-format.pipe';
     FooterImagesComponent,
     TrailsComponent,
     EscapeHtmlPipe,
-    DateFormatPipe
+    DateFormatPipe,
+    MembershipComponent
   ],
   imports: [
     BrowserModule,
