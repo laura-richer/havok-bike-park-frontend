@@ -25,8 +25,6 @@ export class MembershipComponent implements OnInit {
         this.subParagraph = membership["acf"]["sub_paragraph"];
         this.benefits = membership["acf"]["benefits"];
         this.benefitsIntro = membership["acf"]["benefits_intro"];
-
-        console.log(this.membership.acf);
       });
   }
 

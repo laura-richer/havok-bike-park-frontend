@@ -31,7 +31,6 @@ import { ArraySort }      from './services/array-sort.service';
 // Pipes
 import { EscapeHtmlPipe } from './pipes/keep-html.pipe';
 import { DateFormatPipe } from './pipes/date-format.pipe';
-import { MembershipComponent } from './membership/membership.component';
 
 @NgModule({
   declarations: [

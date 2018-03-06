@@ -25,20 +25,21 @@ export class ArraySort {
     this.dateFormatted = this.currentDate.getFullYear() + '' + this.mm + '' + this.dd;
   }
 
-  // Sort objects by date
   sortByDate(object) {
+    this.events = object;
 
     // Remove past events
     for (var i = object.length - 1; i >= 0; --i) {
       if (object[i].acf.event_date < this.dateFormatted) {
-        object.splice(i,1);
-       }
+        this.events.splice(i,1);
+      }
     }
 
-    // Sort remaining by event date
-    this.events = object.slice(0);
-    this.events.sort(function(a,b) {
-        return a.acf.event_date - b.acf.event_date;
-    });
+    return this.events.sort(this.sortNumber);
+  }
+
+  // Sort array by date
+  sortNumber(a, b) {
+    return a.acf.event_date - b.acf.event_date;
   }
 }
