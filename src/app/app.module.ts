@@ -16,6 +16,7 @@ import { HomeComponent }       from './home/home.component';
 import { InfoComponent }       from './info/info.component';
 import { MediaComponent }      from './media/media.component';
 import { TrailsComponent }     from './trails/trails.component';
+import { InsuranceComponent }  from './insurance/insurance.component';
 import { MembershipComponent } from './membership/membership.component';
 
 
@@ -47,7 +48,8 @@ import { DateFormatPipe } from './pipes/date-format.pipe';
     TrailsComponent,
     EscapeHtmlPipe,
     DateFormatPipe,
-    MembershipComponent
+    MembershipComponent,
+    InsuranceComponent
   ],
   imports: [
     BrowserModule,

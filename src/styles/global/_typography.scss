@@ -106,6 +106,14 @@ ul {
   }
 }
 
+[am-font~="small"] {
+  p {
+    font-size: cRem(14);
+    line-height: cRem(19);
+    margin-bottom: cRem(15);
+  }
+}
+
 
 // Links
 // --------------------------------

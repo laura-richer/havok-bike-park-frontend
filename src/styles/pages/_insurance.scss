@@ -1,0 +1,53 @@
+// Insurance page styles
+
+[am-insurance~="row"] {
+  border-bottom: dashed 1px map-get($color, "dark");
+  margin-bottom: cRem(40);
+  padding-bottom: cRem(40);
+
+  h3 {
+    margin-bottom: cRem(30);
+  }
+
+  [am-insurance~="block"] {
+    h4 {
+      margin-bottom: cRem(8);
+    }
+
+    p {
+      strong {
+        font-weight: 600;
+      }
+    }
+
+    ul {
+      li {
+        line-height: cRem(30);
+
+        i {
+          margin-right: cRem(5);
+          color: map-get($color, "light");
+        }
+      }
+    }
+
+    img {
+      margin-top: cRem(30);
+      max-width: 250px;
+    }
+  }
+}
+
+[am-insurance~="footer"] {
+  display: inline-block;
+
+  img {
+    display: block;
+    max-width: 300px;
+    margin: cRem(30) auto;
+  }
+
+  p {
+    margin-bottom: cRem(5);
+  }
+}

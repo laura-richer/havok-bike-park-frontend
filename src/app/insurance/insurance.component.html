@@ -1,0 +1,73 @@
+<div am-section="park-info" am-bg="white">
+  <div am-container>
+    <div am-row>
+      <div am-col="sm-12" am-align="center">
+        <h2 am-title>{{ pageTitle }}</h2>
+      </div>
+    </div>
+
+    <div am-row am-insurance="row">
+      <div am-col="sm-12 md-7">
+        <h3>Cover yourself...</h3>
+        <div am-insurance="block" *ngFor="let block of personalMainInfo">
+          <h4>{{ block.title }}</h4>
+          <div *ngIf="block.text" [innerHTML]="block.text | keepHtml"></div>
+        </div>
+      </div>
+
+      <div am-col="sm-12 md-5">
+        <h3>&nbsp;</h3>
+        <div am-insurance="block">
+          <ul>
+            <li *ngFor="let block of personalTicklist">
+              <i class="fa fa-check" aria-hidden="true"></i>{{ block.bullet_point }}
+            </li>
+          </ul>
+
+          <img src="{{ personalCTA }}" alt="Personal injury insurance" title="Personal injury insurance"/>
+        </div>
+      </div>
+    </div>
+
+    <div am-row am-insurance="row">
+      <div am-col="sm-12 md-7">
+        <h3>Cover your bike &amp; gear...</h3>
+        <div am-insurance="block" *ngFor="let block of equipmentMainInfo">
+          <h4>{{ block.title }}</h4>
+          <div *ngIf="block.text" [innerHTML]="block.text | keepHtml"></div>
+        </div>
+      </div>
+
+      <div am-col="sm-12 md-5">
+        <h3>&nbsp;</h3>
+        <div am-insurance="block">
+          <ul>
+            <li *ngFor="let block of equipmentTicklist">
+              <i class="fa fa-check" aria-hidden="true"></i>{{ block.bullet_point }}
+            </li>
+          </ul>
+
+          <img src="{{ equipmentCTA }}" alt="Bike &amp; Equipment insurance" title="Bike &amp; Equipment insurance"/>
+        </div>
+      </div>
+    </div>
+
+    <div am-row am-insurance="footer">
+      <div
+        am-align="center"
+        am-font="small"
+        am-col="sm-12 md-8"
+        am-push="md-2"
+        *ngIf="mainCopy"
+        [innerHTML]="mainCopy | keepHtml">
+      </div>
+      <div am-col="sm-12" am-align="center">
+        <img src="../assets/images/insurance/msi-support.jpg" alt="Monster Sports Insurance" title="Monster Sports Insurance" />
+        <p>Is proud to support</p>
+        <h3>Havok Bike Park</h3>
+        <p>and all its members</p>
+      </div>
+    </div>
+  </div>
+</div>
+<footer-images></footer-images>
