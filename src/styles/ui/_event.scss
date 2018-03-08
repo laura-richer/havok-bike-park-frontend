@@ -6,7 +6,7 @@ $line-height: 1.1;
 $font-size-md: 16px;
 $line-height-md: 1.4375;
 $lines-to-show: 5;
-$lines-to-show-md: 4;
+$lines-to-show-md: 5;
 
 [am-event] {
   li {
@@ -20,13 +20,17 @@ $lines-to-show-md: 4;
         position: absolute;
         display: block;
         top: 0;
-        left: 0;
-        right: 0;
-        width: 85%;
+        left: 16px;
+        right: 16px;
         height: 100%;
         margin: 0 auto;
         background-color: map-get($color, "black");
         z-index: 0;
+
+        @media #{$above-md} {
+          left: 24px;
+          right: 24px;
+        }
       }
 
       img {
@@ -51,13 +55,31 @@ $lines-to-show-md: 4;
         }
 
         p {
-          display: -webkit-box;
+          display: block;
           max-width: 100%;
           height: $font-size*$line-height*$lines-to-show;
           -webkit-line-clamp: $lines-to-show;
-          -webkit-box-orient: vertical;
           overflow: hidden;
-          text-overflow: ellipsis;
+          text-align: justify;
+
+          &:before {
+            content: "...";
+            position: absolute;
+            bottom: 35px;
+            right: 14px;
+            color: map-get($color, "white");
+            background-color: map-get($color, "dark");
+          }
+
+          &:after {
+            content: '';
+            position: absolute;
+            right: 14px;
+            width: 1em;
+            height: 1em;
+            margin-top: 0.2em;
+            background-color: map-get($color, "dark");
+          }
         }
       }
 
@@ -82,6 +104,16 @@ $lines-to-show-md: 4;
         p {
           height: $font-size-md*$line-height-md*$lines-to-show-md;
           -webkit-line-clamp: $lines-to-show-md;
+
+          &:before {
+            bottom: 45px;
+            right: 23px;
+          }
+
+          &:after {
+            margin-bottom: 20px;
+            right: 20px;
+          }
         }
       }
     }

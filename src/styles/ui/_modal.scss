@@ -1,0 +1,44 @@
+// Modal styles
+body {
+  &.no-scroll {
+    position: fixed;
+    width: 100%;
+  }
+}
+
+[am-modal~="container"] {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, .6);
+  z-index: 1000;
+
+  [am-modal~="body"] {
+    position: absolute;
+    top: 15vh;
+    bottom: 15vh;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    margin: 0 auto;
+    padding: cRem(25);
+    width: auto;
+    height: 70vh;
+    z-index: 1001;
+    background-color: map-get($color, "white");
+    opacity: 0;
+    @include animate(opacity, .5s, ease, 0s);
+
+    img {
+      height: 100%;
+    }
+
+    &.active {
+      opacity: 1;
+    }
+  }
+}

@@ -10,12 +10,12 @@ import { AppComponent }     from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MasonryModule }    from '../../node_modules/angular2-masonry';
 
-import { ContactComponent } from './contact/contact.component';
-import { EventsComponent }  from './events/events.component';
-import { HomeComponent }    from './home/home.component';
-import { InfoComponent }    from './info/info.component';
-import { MediaComponent }   from './media/media.component';
-import { TrailsComponent }  from './trails/trails.component';
+import { ContactComponent }    from './contact/contact.component';
+import { EventsComponent }     from './events/events.component';
+import { HomeComponent }       from './home/home.component';
+import { InfoComponent }       from './info/info.component';
+import { MediaComponent }      from './media/media.component';
+import { TrailsComponent }     from './trails/trails.component';
 import { MembershipComponent } from './membership/membership.component';
 
 
@@ -25,8 +25,9 @@ import { FooterComponent }       from './global/footer/footer.component';
 import { FooterImagesComponent } from './global/footer-images/footer-images.component';
 
 // Services
-import { ApiConnections } from './services/api-connections.service';
-import { ArraySort }      from './services/array-sort.service';
+import { ApiConnections }    from './services/api-connections.service';
+import { ArraySort }         from './services/array-sort.service';
+import { BodyScrollService } from './services/body-scroll.service';
 
 // Pipes
 import { EscapeHtmlPipe } from './pipes/keep-html.pipe';
@@ -61,7 +62,8 @@ import { DateFormatPipe } from './pipes/date-format.pipe';
   ],
   providers: [
     ApiConnections,
-    ArraySort
+    ArraySort,
+    BodyScrollService
   ],
   bootstrap: [AppComponent]
 })

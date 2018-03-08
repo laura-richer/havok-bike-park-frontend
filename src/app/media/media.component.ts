@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiConnections }    from '../services/api-connections.service';
-
+import { BodyScrollService } from '../services/body-scroll.service';
 
 @Component({
   selector: 'app-media',
@@ -10,17 +10,21 @@ export class MediaComponent implements OnInit {
 
   public facebookPhotos;
   public facebookVideos;
-  public videoThumbnails;
   public media: any;
-  public videoIds: any;
+  public mediaSorted: any;
   private fbAPI;
   private apiKey;
 
-  constructor(private apiConnections: ApiConnections) {
+  private modalShow: boolean = false;
+  private modalAnimate: boolean = false;
+
+  constructor(
+    private apiConnections: ApiConnections,
+    private bodyScrollService: BodyScrollService) {
     this.fbAPI = 'https://graph.facebook.com/'
-    this.apiKey = 'EAACEdEose0cBAPJiWjFXgB7nC43zZC2DH2JWlogSg7kyGOOdjBLaLpLo4lL9wVH3ZA9qplpMglZAUB192JQ1bi4QeWAtMMufZCUjZAIwTmn36lBZBzb8MkGYmyXjVQ0ZBnD9duMZBtTIZC0NPmQxXhVPDdAEfIhrHi0ND4N5FCydUQ32RtoSdtEhDZASxjcBhImBQZD';
+    this.apiKey = 'EAAGZBsrRFgEABAM4QFDXIMI6OqZAQJ2VaRSRyHjz01KFPZCThYOziH955CzaTRvvq36HaU67AsaxURvGBvtaCgB8NxP4hsh6AW2pj10mKvv4um0VNVjyg3WT1ZBDwcmcynAJW3nPtxGvKIQEO6ScGzZBAbYGoW08kCGMJHwabngZDZD';
     this.media = [];
-    this.videoIds = [];
+    this.mediaSorted = [];
   }
 
   ngOnInit() {
@@ -34,12 +38,14 @@ export class MediaComponent implements OnInit {
           this.media.push({
             'id': this.facebookPhotos[i].id,
             'created_time': this.facebookPhotos[i].created_time,
+            'formatted_time': Date.parse(this.facebookPhotos[i].created_time),
             'type':'photo'
           });
         }
       });
 
-    this.apiConnections.getFacebookList("videos?access_token=")
+    setTimeout(() =>
+      this.apiConnections.getFacebookList("videos?access_token=")
       .subscribe(facebookVideos => {
 
         this.facebookVideos = facebookVideos;
@@ -49,19 +55,38 @@ export class MediaComponent implements OnInit {
           this.media.push({
             'id': this.facebookVideos[i].id,
             'created_time': this.facebookPhotos[i].created_time,
+            'formatted_time': Date.parse(this.facebookPhotos[i].created_time),
             'type':'video'
           });
         }
-      });
+      })
+    , 100);
 
-    console.log(this.media);
-    //this.orderMedia();
+    setTimeout(() => this.mediaSorted = this.media.sort(this.sortNumber), 300);
+    setTimeout(() => this.mediaSorted = this.mediaSorted.reverse(), 310);
+    //setTimeout(() => console.log(this.mediaSorted), 500);
   }
 
-  orderMedia() {
-    this.media = this.media.slice(0);
-    this.media.sort(function(a,b) {
-      return a.created_time - b.created_time;
-    });
+  sortNumber(a, b) {
+    return a.formatted_time - b.formatted_time;
+  }
+
+  // Modal functionality
+  show(): void {
+    this.modalShow = true;
+    setTimeout(() => this.modalAnimate = true, 10);
+    this.bodyScrollService.removeScroll();
+  }
+
+  hide(): void {
+    this.modalShow = false;
+    setTimeout(() => this.modalAnimate = false, 10);
+    this.bodyScrollService.addScroll();
+  }
+
+  onContainerClicked(event: MouseEvent): void {
+    if ((<HTMLElement>event.target).classList.contains('modal')) {
+      this.hide();
+    }
   }
 }

@@ -13,12 +13,6 @@ export class EventsComponent implements OnInit {
   public pageInfo;
   private pageTitle: string;
 
-  // Date formatting
-  public dateFormatted;
-  public yearFormatted;
-  public monthFormatted;
-  public dayFormatted;
-
   constructor(
     private apiConnections: ApiConnections,
     private arraySort: ArraySort) {}
@@ -34,15 +28,6 @@ export class EventsComponent implements OnInit {
       .subscribe(events => {
         this.events = events;
         this.arraySort.sortByDate(this.events);
-
-        // Format dates
-        for (var i = this.events.length - 1; i >= 0; --i) {
-          this.dateFormatted = this.events[i].acf.event_date
-          this.yearFormatted = this.dateFormatted.substring(0, 4);
-          this.monthFormatted = this.dateFormatted.substring(4, 6);
-          this.dayFormatted = this.dateFormatted.substring(6, 9);
-          this.dateFormatted = this.dayFormatted + '/' + this.monthFormatted + '/' + this.yearFormatted;
-        }
       });
   }
 }

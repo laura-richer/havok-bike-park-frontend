@@ -1,8 +1,22 @@
+<button am-button (click)="show()">Click modal</button>
+
 <div am-masonary>
   <masonry [useImagesLoaded]="true">
-    <masonry-brick class="brick" *ngFor="let mediaItem of media">
+    <masonry-brick class="brick" *ngFor="let mediaItem of mediaSorted">
       <img
         src="{{ fbAPI }}{{ mediaItem.id }}/picture?access_token={{ apiKey }}" />
+        <div am-icon="play" *ngIf="mediaItem.type == 'video'"><i class="fa fa-play-circle-o" aria-hidden="true"></i></div>
     </masonry-brick>
   </masonry>
+</div>
+
+<div
+  *ngIf="modalShow"
+  am-modal="container"
+  class="modal"
+  (click)="onContainerClicked($event)">
+
+  <div am-modal="body" [ngClass]="{'active': modalAnimate}">
+    <img src="../assets/images/Footer-dummy-1.jpg" />
+  </div>
 </div>

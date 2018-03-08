@@ -8,6 +8,7 @@
 
     <div am-row>
       <div
+        *ngIf="mainCopy"
         am-col="sm=12 lg-8"
         am-push="lg-2"
         am-align="center"
@@ -21,7 +22,7 @@
         am-push="md-2 lg-3"
         am-align="left">
 
-        <div am-park-info>
+        <div am-park-info *ngIf="benefitsIntro">
           <h4 am-align="center">Membership Benefits</h4>
 
           <div [innerHTML]="benefitsIntro | keepHtml"></div>
@@ -35,6 +36,7 @@
 
     <div am-row>
       <div
+        *ngIf="subParagraph"
         am-col="sm=12 lg-8"
         am-push="lg-2"
         am-align="center"

@@ -1,6 +1,6 @@
 <div am-footer-images am-hidden="sm">
-  <div am-split [ngStyle]="{'background-image': 'url(' + fi1 + ')'}"></div>
-  <div am-split [ngStyle]="{'background-image': 'url(' + fi2 + ')'}"></div>
-  <div am-split [ngStyle]="{'background-image': 'url(' + fi3 + ')'}"></div>
-  <div am-split [ngStyle]="{'background-image': 'url(' + fi4 + ')'}"></div>
+  <div
+    am-split
+    *ngFor="let mediaItem of media"
+    [ngStyle]="{'background-image': 'url(' + fbAPI + mediaItem.id + '/picture?access_token=' + apiKey + ')'}"></div>
 </div>

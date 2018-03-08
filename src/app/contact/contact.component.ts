@@ -3,6 +3,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ApiConnections }    from '../services/api-connections.service';
 import { FormValidator }     from '../validators/form-validator';
 
+import { HttpClient } from '@angular/common/http';
+
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html'
@@ -12,11 +14,13 @@ export class ContactComponent implements OnInit {
   public pageInfo: any;
   public pageTitle: string;
   public pageContent: string;
+  public formInfo: any;
   private contactForm: FormGroup;
 
   constructor(
     private apiConnections: ApiConnections,
-    private formBuilder: FormBuilder) {
+    private formBuilder: FormBuilder,
+    private http: HttpClient) {
 
     this.contactForm = this.formBuilder.group({
       fullName: ['', Validators.required],
@@ -36,7 +40,9 @@ export class ContactComponent implements OnInit {
   }
 
   contactFormSubmit() {
-    console.log(this.contactForm);
+    this.formInfo = "name=" + this.contactForm.value.fullName + "&email=" + this.contactForm.value.emailAddress + "&phone=" + this.contactForm.value.phoneNumber + "&message=" + this.contactForm.value.message;
+    console.log(this.formInfo);
+    this.http.post("http://api.havokbikepark.com//wp-json/ccf/v1/forms/93", this.formInfo).subscribe((data) => {});
   }
 
 }

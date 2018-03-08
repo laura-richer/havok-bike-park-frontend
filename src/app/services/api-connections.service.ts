@@ -26,7 +26,7 @@ export class ApiConnections {
     // Facebook API paths
     this.fbAPI = 'https://graph.facebook.com/'
     this.userId = '294138224007098/';
-    this.apiKey = 'EAACEdEose0cBAPJiWjFXgB7nC43zZC2DH2JWlogSg7kyGOOdjBLaLpLo4lL9wVH3ZA9qplpMglZAUB192JQ1bi4QeWAtMMufZCUjZAIwTmn36lBZBzb8MkGYmyXjVQ0ZBnD9duMZBtTIZC0NPmQxXhVPDdAEfIhrHi0ND4N5FCydUQ32RtoSdtEhDZASxjcBhImBQZD';
+    this.apiKey = 'EAAGZBsrRFgEABAM4QFDXIMI6OqZAQJ2VaRSRyHjz01KFPZCThYOziH955CzaTRvvq36HaU67AsaxURvGBvtaCgB8NxP4hsh6AW2pj10mKvv4um0VNVjyg3WT1ZBDwcmcynAJW3nPtxGvKIQEO6ScGzZBAbYGoW08kCGMJHwabngZDZD';
   }
 
   getBasic() {

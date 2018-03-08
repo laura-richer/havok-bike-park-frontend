@@ -11,7 +11,31 @@
     width: 100%;
   }
 
+  [am-icon~="play"] {
+    position: absolute;
+    top: 50%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-top: -40px;
+    font-size: cRem(72);
+    color: map-get($color, "white");
+    text-align: center;
+    opacity: .6;
+    @include animate(opacity, .7s, ease, 0s);
+  }
+
   @media #{$above-md} {
     width: 25%;
+  }
+
+  @media #{$above-lg} {
+    cursor: pointer;
+
+    &:hover {
+      [am-icon] {
+        opacity: 1;
+      }
+    }
   }
 }

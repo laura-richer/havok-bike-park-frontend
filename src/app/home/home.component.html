@@ -10,7 +10,7 @@
 
     <div am-row>
       <div am-col="sm-12 lg-7" am-offset="lg-2">
-        <div am-col="sm-12 md-10" [innerHTML]="about | keepHtml">
+        <div am-col="sm-12 md-10" *ngIf="about" [innerHTML]="about | keepHtml">
         </div>
       </div>
     </div>
@@ -32,9 +32,14 @@
 
           <div am-content am-col="sm-8 md-7">
 
-            <h3 [innerHTML]="event.title.rendered | keepHtml"></h3>
-            <div [innerHTML]="event.content.rendered | keepHtml"></div>
-            <h4>{{ dateFormatted }}</h4>
+            <h3
+              *ngIf="event.title.rendered"
+              [innerHTML]="event.title.rendered | keepHtml"></h3>
+
+            <div
+              *ngIf="event.content.rendered"
+              [innerHTML]="event.content.rendered | keepHtml"></div>
+            <h4>{{ event.acf.event_date }}</h4>
           </div>
 
         </li>

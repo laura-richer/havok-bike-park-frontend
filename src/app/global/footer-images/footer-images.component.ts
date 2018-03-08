@@ -7,21 +7,31 @@ import { ApiConnections }    from '../../services/api-connections.service';
 })
 export class FooterImagesComponent implements OnInit {
 
-  private fi1;
-  private fi2;
-  private fi3;
-  private fi4;
+  public facebookPhotos;
+  public fbAPI;
+  public apiKey;
+  public media;
 
-  constructor(private apiConnections: ApiConnections) {}
-
-  ngOnInit() {
-     this.apiConnections.getACFOptions()
-      .subscribe(acfOptions => {
-        this.fi1 = acfOptions["acf"]["image_1"];
-        this.fi2 = acfOptions["acf"]["image_2"];
-        this.fi3 = acfOptions["acf"]["image_3"];
-        this.fi4 = acfOptions["acf"]["image_4"];
-      });
+  constructor(private apiConnections: ApiConnections) {
+    this.fbAPI = 'https://graph.facebook.com/'
+    this.apiKey = 'EAAGZBsrRFgEABAM4QFDXIMI6OqZAQJ2VaRSRyHjz01KFPZCThYOziH955CzaTRvvq36HaU67AsaxURvGBvtaCgB8NxP4hsh6AW2pj10mKvv4um0VNVjyg3WT1ZBDwcmcynAJW3nPtxGvKIQEO6ScGzZBAbYGoW08kCGMJHwabngZDZD';
+    this.media = [];
   }
 
+  ngOnInit() {
+     this.apiConnections.getFacebookList("photos?type=uploaded&limit=4&access_token=")
+      .subscribe(facebookPhotos => {
+
+        this.facebookPhotos = facebookPhotos;
+        this.facebookPhotos = this.facebookPhotos.data;
+
+        for (var i = 0; i < this.facebookPhotos.length; i++) {
+          this.media.push({
+            'id': this.facebookPhotos[i].id,
+            'created_time': this.facebookPhotos[i].created_time,
+            'type':'photo'
+          });
+        }
+      });
+  }
 }

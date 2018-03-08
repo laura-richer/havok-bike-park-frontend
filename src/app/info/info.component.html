@@ -8,20 +8,23 @@
         <h2 am-title>{{ pageTitle }}</h2>
       </div>
 
-      <div am-park-info am-col="sm-12" am-align="center">
+      <div *ngIf="openingTimes" am-park-info am-col="sm-12" am-align="center">
         <h4>Opening Times</h4>
         <p>{{ openingTimes }}</p>
       </div>
 
-      <div am-park-info am-col="sm-12" am-align="center">
+      <div am-park-info am-col="sm-12" am-align="center" *ngIf="prices">
         <h4>Prices</h4>
         <div [innerHTML]="prices | keepHtml"></div>
+
         <p>Find out more about a <a routerLink="/membership" am-color="dark" am-hover="color light">membership</a>.</p>
       </div>
 
-      <div am-park-info am-col="sm-12" am-align="center">
+      <div *ngIf="address" am-park-info am-col="sm-12" am-align="center">
         <h4>Details</h4>
-        <div [innerHTML]="address | keepHtml"></div>
+        <div
+          *ngIf="address"
+          [innerHTML]="address | keepHtml"></div>
         <p><a href="mailto:{{ emailAddress }}" am-color="dark" am-hover="color light">{{ emailAddress }}</a></p>
       </div>
     </div>
