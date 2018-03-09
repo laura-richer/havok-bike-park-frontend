@@ -53,18 +53,23 @@ export class ApiConnections {
     return this.http.get(this.wpAPI + this.content + slug);
   }
 
-  // Get Facebook info
+  // Get Facebook List
   getFacebookList(slug) {
     return this.http.get(this.fbAPI + this.userId + slug + this.apiKey);
   }
 
-  // Get Facebook info
+  // Get Facebook Photo
   getFacebookPhotoObject(id) {
     return this.http.get(this.fbAPI + id + "/picture?access_token=" + this.apiKey);
   }
 
-  // Get Facebook info
-  getFacebookVideoThumbnails(slug) {
-    return this.http.get(this.fbAPI + slug + this.apiKey);
+  // Get Facebook Video Thumbnail
+  getFacebookVideoThumbnails(id) {
+    return this.http.get(this.fbAPI + id + this.apiKey);
+  }
+
+  // Get Facebook Video embed link
+  getFacebookVideoEmbed(id) {
+    return this.http.get(this.fbAPI + id + '?fields=embed_html&access_token=' + this.apiKey);
   }
 }

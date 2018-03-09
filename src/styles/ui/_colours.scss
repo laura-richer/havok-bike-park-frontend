@@ -31,3 +31,7 @@
 [am-bg~="dark"] {
   background-color: map-get($color, "dark");
 }
+
+[am-bg~="red"] {
+  background-color: map-get($color, "red");
+}

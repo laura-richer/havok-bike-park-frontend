@@ -17,6 +17,9 @@ export class MediaComponent implements OnInit {
 
   private modalShow: boolean = false;
   private modalAnimate: boolean = false;
+  private modalSrc;
+  private modalType;
+  private embedHtml;
 
   constructor(
     private apiConnections: ApiConnections,
@@ -28,6 +31,8 @@ export class MediaComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    // get 25 latest facebook images
     this.apiConnections.getFacebookList("photos?type=uploaded&access_token=")
       .subscribe(facebookPhotos => {
 
@@ -44,10 +49,10 @@ export class MediaComponent implements OnInit {
         }
       });
 
+    // get 25 latest facebook Videos
     setTimeout(() =>
       this.apiConnections.getFacebookList("videos?access_token=")
       .subscribe(facebookVideos => {
-
         this.facebookVideos = facebookVideos;
         this.facebookVideos = this.facebookVideos.data;
 
@@ -62,6 +67,7 @@ export class MediaComponent implements OnInit {
       })
     , 100);
 
+    // Sort array and order by latest first
     setTimeout(() => this.mediaSorted = this.media.sort(this.sortNumber), 300);
     setTimeout(() => this.mediaSorted = this.mediaSorted.reverse(), 310);
     //setTimeout(() => console.log(this.mediaSorted), 500);
@@ -72,10 +78,20 @@ export class MediaComponent implements OnInit {
   }
 
   // Modal functionality
-  show(): void {
-    this.modalShow = true;
-    setTimeout(() => this.modalAnimate = true, 10);
+  show(src, type): void {
+    this.modalSrc = src;
+    this.modalType = type;
+    setTimeout(() => this.modalShow = true, 10);
+    setTimeout(() => this.modalAnimate = true, 20);
     this.bodyScrollService.removeScroll();
+
+    if (this.modalType == 'video') {
+      this.apiConnections.getFacebookVideoEmbed(this.modalSrc)
+      .subscribe(facebookVideoEmbed => {
+        this.embedHtml = facebookVideoEmbed;
+        this.embedHtml = this.embedHtml.embed_html;
+      });
+    }
   }
 
   hide(): void {

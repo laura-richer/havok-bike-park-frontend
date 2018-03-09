@@ -37,6 +37,28 @@ body {
       height: 100%;
     }
 
+    [am-iframe] {
+      height: 100%;
+
+      iframe {
+        height: 100% !important;
+        width: auto !important;
+      }
+    }
+
+    .fa-times {
+      position:absolute;
+      top: 2px;
+      right: 4px;
+      font-size: cRem(25);
+      cursor: pointer;
+      @include animate(opacity, .3s, ease, 0s);
+
+      &:hover {
+        opacity: .6;
+      }
+    }
+
     &.active {
       opacity: 1;
     }
