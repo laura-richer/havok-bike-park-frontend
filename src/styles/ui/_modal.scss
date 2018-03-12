@@ -19,22 +19,34 @@ body {
 
   [am-modal~="body"] {
     position: absolute;
-    top: 15vh;
-    bottom: 15vh;
-    left: 50%;
-    -webkit-transform: translateX(-50%);
-    transform: translateX(-50%);
+    top: 100px;
+    left: 12%;
+    -webkit-transform: translateX(-6.9%);
+    transform: translateX(-6.9%);
     margin: 0 auto;
     padding: cRem(25);
     width: auto;
-    height: 70vh;
+    height: auto;
     z-index: 1001;
     background-color: map-get($color, "white");
     opacity: 0;
     @include animate(opacity, .5s, ease, 0s);
 
+    @media #{$above-sm} {
+      left: 33%;
+      -webkit-transform: translateX(-25%);
+      transform: translateX(-25%);
+    }
+
+    @media #{$above-md} {
+      top: 70px;
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+      transform: translateX(-50%);
+    }
+
     img {
-      height: 100%;
+      height: auto;
       width: auto;
     }
 

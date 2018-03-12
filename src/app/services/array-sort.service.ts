@@ -12,11 +12,11 @@ export class ArraySort {
   }
 
   sortByDate(object) {
-    this.events = object;
+    this.events = object.data;
 
     // Remove past events
-    for (var i = object.length - 1; i >= 0; --i) {
-      if ( Date.parse(object[i].acf.event_date) < this.currentDate) {
+    for (var i = object.data.length - 1; i >= 0; --i) {
+      if ( Date.parse(object.data[i].start_time) < this.currentDate) {
         this.events.splice(i,1);
       }
     }
@@ -26,6 +26,6 @@ export class ArraySort {
 
   // Sort array by date
   sortNumber(a, b) {
-    return Date.parse(a.acf.event_date) - Date.parse(b.acf.event_date);
+    return Date.parse(a.start_time) - Date.parse(b.start_time);
   }
 }

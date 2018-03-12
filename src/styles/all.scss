@@ -16,7 +16,8 @@
         "global/typography";
 
 // Individual pages
-@import "pages/insurance";
+@import "pages/home",
+        "pages/insurance";
 
 // UI
 @import "ui/buttons",

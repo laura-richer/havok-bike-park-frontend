@@ -1,0 +1,34 @@
+// Home page styles
+[am-title~="about"] {
+  margin-bottom: cRem(100);
+}
+
+[am-row~="about"] {
+  position: relative;
+
+  [am-parallax] {
+    position: absolute;
+    opacity: .2;
+    z-index: -1;
+
+    &[am-parallax~="image-1"] {
+      left: 50%;
+      top: 30%;
+    }
+
+    &[am-parallax~="image-2"] {
+      left: 60%;
+      top: -70px;
+    }
+
+    @media #{$above-lg} {
+      &[am-parallax~="image-1"] {
+        top: 50%;
+      }
+
+      &[am-parallax~="image-2"] {
+        left: 55%;
+      }
+    }
+  }
+}

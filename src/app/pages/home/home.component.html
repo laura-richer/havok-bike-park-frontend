@@ -4,14 +4,21 @@
   <div am-container>
     <div am-row>
       <div am-col>
-        <h1 am-title>About Us</h1>
+        <h1 am-title="about">About Us</h1>
       </div>
     </div>
 
-    <div am-row>
+    <div am-row="about">
       <div am-col="sm-12 lg-7" am-offset="lg-2">
         <div am-col="sm-12 md-10" *ngIf="about" [innerHTML]="about | keepHtml">
         </div>
+      </div>
+
+      <div am-parallax="image-1" am-visible="md lg xl" am-col="md-5 lg-4 xl-2">
+        <img src="{{ aboutImage1 }}" />
+      </div>
+      <div am-parallax="image-2" am-visible="md lg xl" am-col="md-3 lg-2">
+        <img src="{{ aboutImage2 }}" />
       </div>
     </div>
   </div>
@@ -24,22 +31,19 @@
         <h2 am-title>Next Event</h2>
       </div>
 
-      <ul am-col="sm-12 lg-10" am-push="lg-1" am-event="home">
-        <li *ngFor="let event of events | slice:0:1" am-col="sm-12">
+      <p *ngIf="eventsSorted.length <= 0">There are currently no planned events.</p>
+
+      <ul *ngIf="eventsSorted.length > 0" am-col="sm-12 lg-10" am-push="lg-1" am-event="home">
+        <li *ngFor="let event of eventsSorted | slice:0:1" am-col="sm-12">
           <div am-image am-col="sm-4 md-5">
-            <img src="{{ event.acf.event_image }}" title="#" alt="#"/>
+            <img src="{{ event.cover_image }}" title="#" alt="#"/>
           </div>
 
           <div am-content am-col="sm-8 md-7">
 
-            <h3
-              *ngIf="event.title.rendered"
-              [innerHTML]="event.title.rendered | keepHtml"></h3>
-
-            <div
-              *ngIf="event.content.rendered"
-              [innerHTML]="event.content.rendered | keepHtml"></div>
-            <h4>{{ event.acf.event_date }}</h4>
+            <h3>{{event.name}}</h3>
+            <div *ngIf="event.description"><p>{{ event.description }}</p></div>
+            <h4>{{ event.start_time | date:'mediumDate' }}</h4>
           </div>
 
         </li>

@@ -72,4 +72,9 @@ export class ApiConnections {
   getFacebookVideoEmbed(id) {
     return this.http.get(this.fbAPI + id + '?fields=embed_html&access_token=' + this.apiKey);
   }
+
+  // Get Facebook Video embed link
+  getFacebookSingleEvent(id) {
+    return this.http.get(this.fbAPI + id + '?fields=cover,name,description,id,start_time&access_token=' + this.apiKey);
+  }
 }
