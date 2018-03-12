@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiConnections }    from '../services/api-connections.service';
+import { ApiConnections }    from '../../services/api-connections.service';
 
 @Component({
   selector: 'app-membership',

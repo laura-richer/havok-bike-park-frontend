@@ -2,14 +2,14 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 // Pages
-import { HomeComponent }        from './home/home.component';
-import { EventsComponent }      from './events/events.component';
-import { InfoComponent }        from './info/info.component';
-import { TrailsComponent }      from './trails/trails.component';
-import { MediaComponent }       from './media/media.component';
-import { ContactComponent }     from './contact/contact.component';
-import { MembershipComponent }  from './membership/membership.component';
-import { InsuranceComponent }   from './insurance/insurance.component';
+import { HomeComponent }        from './pages/home/home.component';
+import { EventsComponent }      from './pages/events/events.component';
+import { InfoComponent }        from './pages/info/info.component';
+import { TrailsComponent }      from './pages/trails/trails.component';
+import { MediaComponent }       from './pages/media/media.component';
+import { ContactComponent }     from './pages/contact/contact.component';
+import { MembershipComponent }  from './pages/membership/membership.component';
+import { InsuranceComponent }   from './pages/insurance/insurance.component';
 
 const routes: Routes = [
   { path: '',           component: HomeComponent },

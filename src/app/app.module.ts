@@ -10,14 +10,14 @@ import { AppComponent }     from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MasonryModule }    from '../../node_modules/angular2-masonry';
 
-import { ContactComponent }    from './contact/contact.component';
-import { EventsComponent }     from './events/events.component';
-import { HomeComponent }       from './home/home.component';
-import { InfoComponent }       from './info/info.component';
-import { MediaComponent }      from './media/media.component';
-import { TrailsComponent }     from './trails/trails.component';
-import { InsuranceComponent }  from './insurance/insurance.component';
-import { MembershipComponent } from './membership/membership.component';
+import { ContactComponent }    from './pages/contact/contact.component';
+import { EventsComponent }     from './pages/events/events.component';
+import { HomeComponent }       from './pages/home/home.component';
+import { InfoComponent }       from './pages/info/info.component';
+import { MediaComponent }      from './pages/media/media.component';
+import { TrailsComponent }     from './pages/trails/trails.component';
+import { InsuranceComponent }  from './pages/insurance/insurance.component';
+import { MembershipComponent } from './pages/membership/membership.component';
 
 
 // Global componants

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ApiConnections }    from '../services/api-connections.service';
-import { FormValidator }     from '../validators/form-validator';
+import { ApiConnections }    from '../../services/api-connections.service';
+import { FormValidator }     from '../../validators/form-validator';
 
 import { HttpClient } from '@angular/common/http';
 

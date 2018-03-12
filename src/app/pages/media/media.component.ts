@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiConnections }    from '../services/api-connections.service';
-import { BodyScrollService } from '../services/body-scroll.service';
+import { ApiConnections }    from '../../services/api-connections.service';
+import { BodyScrollService } from '../../services/body-scroll.service';
 
 @Component({
   selector: 'app-media',

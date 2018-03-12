@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiConnections }    from '../services/api-connections.service';
-import { ArraySort }         from '../services/array-sort.service';
+import { ApiConnections }    from '../../services/api-connections.service';
+import { ArraySort }         from '../../services/array-sort.service';
 
 @Component({
   selector: 'app-events',
