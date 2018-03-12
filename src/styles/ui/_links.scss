@@ -12,7 +12,8 @@
       }
     }
 
-    &[am-hover~="top-line"] {
+    &[am-hover~="top-line"],
+    &.active {
       &:before {
         content: "";
         position: absolute;
@@ -25,7 +26,8 @@
         @include animate(width, 0.2s, ease, 0s);
       }
 
-      &:hover {
+      &:hover,
+      &.active {
         &:before {
           width: 100%;
         }

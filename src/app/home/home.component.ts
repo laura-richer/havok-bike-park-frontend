@@ -10,6 +10,8 @@ import { ArraySort }         from '../services/array-sort.service';
 export class HomeComponent implements OnInit {
 
   public about;
+  public aboutImage1;
+  public aboutImage2;
   public events;
 
   constructor(
@@ -20,6 +22,8 @@ export class HomeComponent implements OnInit {
     this.apiConnections.getPage(5)
       .subscribe(about => {
         this.about = about["content"]["rendered"];
+        this.aboutImage1 = about["acf"]["about_image_1"];
+        this.aboutImage2 = about["acf"]["about_image_2"];
       });
 
     this.apiConnections.getCustomPost("events")
