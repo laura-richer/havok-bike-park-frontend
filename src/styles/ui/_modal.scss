@@ -35,14 +35,16 @@ body {
 
     img {
       height: 100%;
+      width: auto;
     }
 
     [am-iframe] {
       height: 100%;
+      width: 100%;
 
       iframe {
         height: 100% !important;
-        width: auto !important;
+        width: 100% !important;
       }
     }
 

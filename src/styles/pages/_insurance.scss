@@ -32,8 +32,8 @@
     }
 
     img {
-      margin-top: cRem(30);
       max-width: 250px;
+      margin-top: cRem(30);
     }
   }
 }
@@ -43,11 +43,17 @@
 
   img {
     display: block;
-    max-width: 300px;
+    max-width: 100%;
     margin: cRem(30) auto;
   }
 
   p {
     margin-bottom: cRem(5);
+  }
+
+  @media #{$above-sm} {
+    img {
+      max-width: 300px;
+    }
   }
 }

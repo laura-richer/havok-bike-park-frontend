@@ -16,7 +16,7 @@
   class="modal"
   (click)="onContainerClicked($event)">
 
-  <div am-modal="body" [ngClass]="{'active': modalAnimate}">
+  <div am-modal="body" [ngClass]="{'active': modalAnimate, 'video': modalType === 'video', 'photo': modalType === 'photo' }">
     <i class="fa fa-times" aria-hidden="true" (click)="hide()"></i>
     <img
       *ngIf="modalType == 'photo'"
