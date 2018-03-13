@@ -31,10 +31,10 @@
         <h2 am-title>Next Event</h2>
       </div>
 
-      <p *ngIf="eventsSorted.length <= 0">There are currently no planned events.</p>
+      <p *ngIf="eventsAll.length <= 0">There are currently no planned events.</p>
 
-      <ul *ngIf="eventsSorted.length > 0" am-col="sm-12 lg-10" am-push="lg-1" am-event="home">
-        <li *ngFor="let event of eventsSorted | slice:0:1" am-col="sm-12">
+      <ul *ngIf="eventsAll.length > 0" am-col="sm-12 lg-10" am-push="lg-1" am-event="home">
+        <li *ngFor="let event of eventsOrdered | slice:0:1" am-col="sm-12">
           <div am-image am-col="sm-4 md-5">
             <img src="{{ event.cover_image }}" title="#" alt="#"/>
           </div>
