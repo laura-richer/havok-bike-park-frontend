@@ -20,22 +20,41 @@ body {
   [am-modal~="body"] {
     position: absolute;
     top: 100px;
-    left: 12%;
-    -webkit-transform: translateX(-6.9%);
-    transform: translateX(-6.9%);
-    margin: 0 auto;
-    padding: cRem(25);
     width: auto;
     height: auto;
-    z-index: 1001;
+    margin: 0 auto;
+    padding: cRem(25);
     background-color: map-get($color, "white");
     opacity: 0;
+    z-index: 1001;
     @include animate(opacity, .5s, ease, 0s);
 
-    @media #{$above-sm} {
-      left: 33%;
-      -webkit-transform: translateX(-25%);
-      transform: translateX(-25%);
+    &.photo {
+      left: 12%;
+      -webkit-transform: translateX(-6.9%);
+      transform: translateX(-6.9%);
+
+      @media #{$above-sm} {
+        left: 33%;
+        -webkit-transform: translateX(-25%);
+        transform: translateX(-25%);
+      }
+
+      img {
+        height: auto;
+        width: auto;
+      }
+    }
+
+    &.video {
+      [am-iframe] {
+        height: 100%;
+        width: 100%;
+      }
+
+      @media screen and (max-width: 640px) {
+
+      }
     }
 
     @media #{$above-md} {
@@ -43,21 +62,6 @@ body {
       left: 50%;
       -webkit-transform: translateX(-50%);
       transform: translateX(-50%);
-    }
-
-    img {
-      height: auto;
-      width: auto;
-    }
-
-    [am-iframe] {
-      height: 100%;
-      width: 100%;
-
-      iframe {
-        height: 100% !important;
-        width: 100% !important;
-      }
     }
 
     .fa-times {
