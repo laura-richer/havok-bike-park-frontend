@@ -5,11 +5,25 @@ import { HttpClientModule }                 from '@angular/common/http';
 import { AgmCoreModule }                    from '@agm/core';
 
 
-// Components
+// Core Components
 import { AppComponent }     from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MasonryModule }    from '../../node_modules/angular2-masonry';
 
+// Directives
+import { AppearDirective }    from './directives/on-appear.directive';
+
+// Services
+import { ApiConnections }    from './services/api-connections.service';
+import { ArraySort }         from './services/array-sort.service';
+import { BodyScrollService } from './services/body-scroll.service';
+import { WINDOW_PROVIDERS }  from './services/window.service';
+
+// Pipes
+import { EscapeHtmlPipe } from './pipes/keep-html.pipe';
+import { DateFormatPipe } from './pipes/date-format.pipe';
+
+// Custom Componants
 import { ContactComponent }    from './pages/contact/contact.component';
 import { EventsComponent }     from './pages/events/events.component';
 import { HomeComponent }       from './pages/home/home.component';
@@ -19,20 +33,9 @@ import { TrailsComponent }     from './pages/trails/trails.component';
 import { InsuranceComponent }  from './pages/insurance/insurance.component';
 import { MembershipComponent } from './pages/membership/membership.component';
 
-
-// Global componants
 import { UserNavComponent }      from './global/user-nav/user-nav.component';
 import { FooterComponent }       from './global/footer/footer.component';
 import { FooterImagesComponent } from './global/footer-images/footer-images.component';
-
-// Services
-import { ApiConnections }    from './services/api-connections.service';
-import { ArraySort }         from './services/array-sort.service';
-import { BodyScrollService } from './services/body-scroll.service';
-
-// Pipes
-import { EscapeHtmlPipe } from './pipes/keep-html.pipe';
-import { DateFormatPipe } from './pipes/date-format.pipe';
 
 @NgModule({
   declarations: [
@@ -49,7 +52,8 @@ import { DateFormatPipe } from './pipes/date-format.pipe';
     EscapeHtmlPipe,
     DateFormatPipe,
     MembershipComponent,
-    InsuranceComponent
+    InsuranceComponent,
+    AppearDirective
   ],
   imports: [
     BrowserModule,
@@ -65,7 +69,8 @@ import { DateFormatPipe } from './pipes/date-format.pipe';
   providers: [
     ApiConnections,
     ArraySort,
-    BodyScrollService
+    BodyScrollService,
+    WINDOW_PROVIDERS
   ],
   bootstrap: [AppComponent]
 })

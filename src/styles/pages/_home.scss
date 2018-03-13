@@ -12,18 +12,18 @@
     z-index: -1;
 
     &[am-parallax~="image-1"] {
-      left: 50%;
-      top: 30%;
+      left: 75%;
+      top: -150px;
     }
 
     &[am-parallax~="image-2"] {
       left: 60%;
-      top: -70px;
+      top: -100px;
     }
 
     @media #{$above-lg} {
       &[am-parallax~="image-1"] {
-        top: 50%;
+        left: 65%;
       }
 
       &[am-parallax~="image-2"] {

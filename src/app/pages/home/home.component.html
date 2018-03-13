@@ -8,23 +8,23 @@
       </div>
     </div>
 
-    <div am-row="about">
+    <div am-row="about" (appear)="onAppear()">
       <div am-col="sm-12 lg-7" am-offset="lg-2">
         <div am-col="sm-12 md-10" *ngIf="about" [innerHTML]="about | keepHtml">
         </div>
       </div>
 
-      <div am-parallax="image-1" am-visible="md lg xl" am-col="md-5 lg-4 xl-2">
+      <div am-parallax="image-1" id="parallax-image-1" am-visible="md lg xl" am-col="md-4 lg-4 xl-3">
         <img src="{{ aboutImage1 }}" />
       </div>
-      <div am-parallax="image-2" am-visible="md lg xl" am-col="md-3 lg-2">
+      <div am-parallax="image-2" id="parallax-image-2" am-visible="md lg xl" am-col="md-3 lg-2">
         <img src="{{ aboutImage2 }}" />
       </div>
     </div>
   </div>
 </div>
 
-<div am-section am-bg="dark">
+<div am-section am-bg="dark" (appear)="onAppear()">
   <div am-container>
     <div am-row>
       <div am-col="sm-12" am-align="center">

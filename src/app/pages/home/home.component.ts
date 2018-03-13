@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { ApiConnections }    from '../../services/api-connections.service';
-import { ArraySort }         from '../../services/array-sort.service';
-
+import { Component, OnInit, HostListener, Inject } from '@angular/core';
+import { DOCUMENT }                                from "@angular/platform-browser";
+import { WINDOW }                                  from "../../services/window.service";
+import { ApiConnections }                          from '../../services/api-connections.service';
+import { ArraySort }                               from '../../services/array-sort.service';
 
 @Component({
   selector: 'app-home',
@@ -15,10 +16,13 @@ export class HomeComponent implements OnInit {
   public eventsAll;
   public eventsUnordered;
   public eventsOrdered;
+  public hasAppeared: boolean = false;
 
   constructor(
     private apiConnections: ApiConnections,
-    private arraySort: ArraySort) {
+    private arraySort: ArraySort,
+    @Inject(DOCUMENT) private document: Document,
+    @Inject(WINDOW) private window: Window) {
 
     this.eventsAll = 1;
     this.eventsUnordered = [];
@@ -72,5 +76,25 @@ export class HomeComponent implements OnInit {
   // Move to service
   sortNumber(a, b) {
     return a.id - b.id;
+  }
+
+
+  onAppear(){
+    this.hasAppeared = true;
+    console.log('appeared');
+  }
+
+  // Parallax Scrolling
+  @HostListener("window:scroll", [])
+  onWindowScroll() {
+    this.parallaxScroll('parallax-image-1', 2);
+    this.parallaxScroll('parallax-image-2', 6);
+  }
+
+  parallaxScroll(object, intensity) {
+    var element = document.getElementsByClassName(object);
+    var scrollTop = window.scrollY;
+    var imgPos = scrollTop / intensity + 'px';
+    document.getElementById(object).style.transform = 'translateY(' + imgPos + ')';
   }
 }
