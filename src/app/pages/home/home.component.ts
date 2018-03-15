@@ -16,7 +16,9 @@ export class HomeComponent implements OnInit {
   public eventsAll;
   public eventsUnordered;
   public eventsOrdered;
-  public hasAppeared: boolean = false;
+  public hasAppeared: string;
+  public aboutTrigger: boolean = false;
+  public eventsTrigger: boolean = false;
 
   constructor(
     private apiConnections: ApiConnections,
@@ -78,10 +80,13 @@ export class HomeComponent implements OnInit {
     return a.id - b.id;
   }
 
-
-  onAppear(){
-    this.hasAppeared = true;
-    console.log('appeared');
+  // Animate on view
+  onAppear(element) {
+    if (element == 'about') {
+      this.aboutTrigger = true;
+    } else if(element == 'events') {
+      this.eventsTrigger = true;
+    }
   }
 
   // Parallax Scrolling

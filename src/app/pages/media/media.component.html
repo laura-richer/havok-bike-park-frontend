@@ -16,13 +16,15 @@
   class="modal"
   (click)="onContainerClicked($event)">
 
-  <div am-modal="body" [ngClass]="{'active': modalAnimate, 'video': modalType === 'video', 'photo': modalType === 'photo' }">
+  <div
+    am-modal="body"
+    [ngClass]="{'active': modalAnimate, 'video': modalType === 'video', 'photo': modalType === 'photo', 'landscape': position == 'landscape', 'portrait': position == 'portrait' }">
     <i class="fa fa-times" aria-hidden="true" (click)="hide()"></i>
     <img
       *ngIf="modalType == 'photo'"
       src="{{ fbAPI }}{{ modalSrc }}/picture?access_token={{ apiKey }}" />
 
-    <div am-iframe *ngIf="modalType == 'video'" [innerHTML]="embedHtml | keepHtml">
+    <div am-iframe id="modal-iframe" *ngIf="modalType == 'video'" [innerHTML]="embedHtml | keepHtml">
     </div>
   </div>
 </div>

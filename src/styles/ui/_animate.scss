@@ -1,0 +1,18 @@
+// Animation styles
+
+[am-animate] {
+  [am-title],
+  [am-row~="about"],
+  [am-event~="home"] {
+    opacity: 0;
+    @include animate(all, .3s, ease, 0s)
+  }
+
+  &.sa-visible {
+    [am-title],
+    [am-row~="about"],
+    [am-event~="home"] {
+      opacity: 1;
+    }
+  }
+}

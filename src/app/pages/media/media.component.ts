@@ -21,6 +21,11 @@ export class MediaComponent implements OnInit {
   private modalType;
   private embedHtml;
 
+  // Modal sizing
+  private mediaHeight: any;
+  private mediaWidth: any;
+  private position: any;
+
   constructor(
     private apiConnections: ApiConnections,
     private bodyScrollService: BodyScrollService) {
@@ -81,17 +86,41 @@ export class MediaComponent implements OnInit {
   show(src, type): void {
     this.modalSrc = src;
     this.modalType = type;
-    setTimeout(() => this.modalShow = true, 10);
-    setTimeout(() => this.modalAnimate = true, 20);
-    this.bodyScrollService.removeScroll();
 
     if (this.modalType == 'video') {
-      this.apiConnections.getFacebookVideoEmbed(this.modalSrc)
+      this.apiConnections.getFacebookMediaEmbed(this.modalSrc, 'embed_html')
       .subscribe(facebookVideoEmbed => {
         this.embedHtml = facebookVideoEmbed;
         this.embedHtml = this.embedHtml.embed_html;
+
+        //Testing getting the iframe size
+        //this.mediaWidth = document.getElementsByTagName('iframe[0]').getAttribute('width');
+        //console.log(document.getElementsByTagName('iframe')[0].getAttribute('offsetHeight'));
+        //console.log(this.mediaWidth);
+      });
+    } else {
+      this.apiConnections.getFacebookMediaEmbed(this.modalSrc, 'height,width')
+      .subscribe(facebookPhotoEmbed => {
+        this.embedHtml = facebookPhotoEmbed;
+        this.mediaHeight = this.embedHtml.height;
+        this.mediaWidth = this.embedHtml.width;
+        console.log(this.mediaWidth);
+
+        // Work out modal orintation
+        if (this.mediaHeight > this.mediaWidth) {
+          this.position = 'portrait';
+        } else if (this.mediaWidth > this.mediaHeight) {
+          this.position = 'landscape';
+        }
+
+        console.log(this.position);
+
       });
     }
+
+    setTimeout(() => this.modalShow = true, 10);
+    setTimeout(() => this.modalAnimate = true, 20);
+    this.bodyScrollService.removeScroll();
   }
 
   hide(): void {

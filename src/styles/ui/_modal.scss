@@ -20,8 +20,6 @@ body {
   [am-modal~="body"] {
     position: absolute;
     top: 100px;
-    width: auto;
-    height: auto;
     margin: 0 auto;
     padding: cRem(25);
     background-color: map-get($color, "white");
@@ -29,39 +27,59 @@ body {
     z-index: 1001;
     @include animate(opacity, .5s, ease, 0s);
 
-    &.photo {
-      left: 12%;
-      -webkit-transform: translateX(-6.9%);
-      transform: translateX(-6.9%);
+    &.video {
+      width: 70%;
+      height: auto;
 
-      @media #{$above-sm} {
-        left: 33%;
-        -webkit-transform: translateX(-25%);
-        transform: translateX(-25%);
+      iframe {
+        width: 100%;
       }
+    }
+
+    &.portrait {
+      height: 65vh;
+      width: auto;
+      max-width: 95%;
 
       img {
-        height: auto;
+        height: 100%;
         width: auto;
       }
     }
 
-    &.video {
-      [am-iframe] {
-        height: 100%;
+    &.landscape {
+      left: 0;
+      right: 0;
+      height: auto;
+      width: 85%;
+
+      img {
+        height: auto;
         width: 100%;
-      }
-
-      @media screen and (max-width: 640px) {
-
       }
     }
 
     @media #{$above-md} {
       top: 70px;
-      left: 50%;
-      -webkit-transform: translateX(-50%);
-      transform: translateX(-50%);
+
+      &.portrait {
+        height: 80vh;
+        left: 12%;
+        -webkit-transform: translateX(-6.9%);
+        transform: translateX(-6.9%);
+      }
+    }
+
+    @media #{$above-lg} {
+      &.landscape {
+        width: 70%;
+      }
+    }
+
+    @media #{$above-xl} {
+      &.landscape {
+        width: 60%;
+      }
     }
 
     .fa-times {

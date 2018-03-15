@@ -29,13 +29,13 @@ export class AppearDirective implements AfterViewInit, OnDestroy {
   saveDimensions() {
     this.elementPos = this.getOffsetTop(this.element.nativeElement);
     this.elementHeight = this.element.nativeElement.offsetHeight;
-    this.windowHeight = window.innerHeight;
+    this.windowHeight = window.innerHeight / 2;
   }
   saveScrollPos() {
     this.scrollPos = window.scrollY;
   }
   getOffsetTop(element: any){
-    let offsetTop = element.offsetTop || 0;
+    let offsetTop = element.offsetTop / 3 || 0;
     if(element.offsetParent){
       offsetTop += this.getOffsetTop(element.offsetParent);
     }
