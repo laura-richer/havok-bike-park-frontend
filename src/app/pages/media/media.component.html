@@ -18,7 +18,7 @@
 
   <div
     am-modal="body"
-    id="image-modal"
+    id="modal"
     [ngClass]="{'active': modalAnimate, 'video': modalType === 'video', 'photo': modalType === 'photo', 'landscape': position == 'landscape', 'portrait': position == 'portrait' }"
     [style.margin-left.px]="position == 'portrait' ? '-' + mediaWidth : null">
     <i class="fa fa-times" aria-hidden="true" (click)="hide()"></i>
@@ -26,7 +26,7 @@
       *ngIf="modalType == 'photo'"
       src="{{ fbAPI }}{{ modalSrc }}/picture?access_token={{ apiKey }}" />
 
-    <div am-iframe id="modal-iframe" *ngIf="modalType == 'video'" [innerHTML]="embedHtml | keepHtml">
+    <div am-iframe *ngIf="modalType == 'video'" [innerHTML]="embedHtml | keepHtml">
     </div>
   </div>
 </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiConnections }    from '../../services/api-connections.service';
 import { BodyScrollService } from '../../services/body-scroll.service';
+import { ModalOrientation }  from '../../services/modal-orientation.service';
 
 @Component({
   selector: 'app-media',
@@ -28,7 +29,8 @@ export class MediaComponent implements OnInit {
 
   constructor(
     private apiConnections: ApiConnections,
-    private bodyScrollService: BodyScrollService) {
+    private bodyScrollService: BodyScrollService,
+    private modalOrientation: ModalOrientation) {
     this.fbAPI = 'https://graph.facebook.com/'
     this.apiKey = 'EAAGZBsrRFgEABAM4QFDXIMI6OqZAQJ2VaRSRyHjz01KFPZCThYOziH955CzaTRvvq36HaU67AsaxURvGBvtaCgB8NxP4hsh6AW2pj10mKvv4um0VNVjyg3WT1ZBDwcmcynAJW3nPtxGvKIQEO6ScGzZBAbYGoW08kCGMJHwabngZDZD';
     this.media = [];
@@ -93,10 +95,18 @@ export class MediaComponent implements OnInit {
         this.embedHtml = facebookVideoEmbed;
         this.embedHtml = this.embedHtml.embed_html;
 
-        //Testing getting the iframe size
-        //this.mediaWidth = document.getElementsByTagName('iframe[0]').getAttribute('width');
-        //console.log(document.getElementsByTagName('iframe')[0].getAttribute('offsetHeight'));
-        //console.log(this.mediaWidth);
+        // Get dimensions & orientation of modal
+        this.position = this.modalOrientation.getDimensions('width', this.embedHtml);
+
+        // Trigger modal functionality
+        // refactor into a service???
+        setTimeout(() => this.modalShow = true, 400);
+
+        // Do we need this for video??
+        setTimeout(() => this.modalPositionVideo(), 450);
+
+        setTimeout(() => this.modalAnimate = true, 500);
+        this.bodyScrollService.removeScroll();
       });
     } else {
       this.apiConnections.getFacebookMediaEmbed(this.modalSrc, 'height,width')
@@ -106,27 +116,40 @@ export class MediaComponent implements OnInit {
         this.mediaWidth = this.embedHtml.width;
 
         // Work out modal orintation
+        // ADD INTO SERVICE - see below //
         if (this.mediaHeight > this.mediaWidth) {
           this.position = 'portrait';
         } else if (this.mediaWidth > this.mediaHeight) {
           this.position = 'landscape';
         }
+
+        // TEST //
+        // Service version of the about if statement
+        //this.position = this.modalOrientation.getOrintation(this.mediaWidth, this.mediaHeight);
+        //console.log(this.position);
+
+        // Trigger modal functionality
+        // refactor into a service???
+        setTimeout(() => this.modalShow = true, 400);
+        setTimeout(() => this.modalPositionPhoto(this.position), 450);
+        setTimeout(() => this.modalAnimate = true, 500);
+        this.bodyScrollService.removeScroll();
       });
     }
+  }
 
-    setTimeout(() => this.modalShow = true, 400);
-
-
-    // get width of current modal
-    // This needs testing when facebook API working again
-    if (this.position == 'portrait') {
-      this.mediaWidth = document.getElementById('image-modal').getAttribute('width');
-      console.log(this.mediaWidth);
+  // Position modal for portrait images
+  //Do we need this for videos?
+  modalPositionPhoto(position) {
+    if (position == 'portrait') {
+      this.mediaWidth = document.getElementById('modal').offsetWidth;
       this.mediaWidth = this.mediaWidth / 2;
     }
+  }
 
-    setTimeout(() => this.modalAnimate = true, 500);
-    this.bodyScrollService.removeScroll();
+  // Do we need this for video??
+  modalPositionVideo() {
+    this.mediaWidth = document.getElementById('modal').offsetWidth;
   }
 
   hide(): void {

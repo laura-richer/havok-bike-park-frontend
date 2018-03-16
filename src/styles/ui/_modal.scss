@@ -30,9 +30,22 @@ body {
     &.video {
       width: 70%;
       height: auto;
+      left: 0;
+      right: 0;
 
-      iframe {
-        width: 100%;
+      [am-iframe] {
+        position: relative;
+        overflow: hidden;
+        padding-top: 56.25%;
+
+        iframe {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          border: 0;
+        }
       }
     }
 

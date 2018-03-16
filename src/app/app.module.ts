@@ -17,6 +17,7 @@ import { AppearDirective }    from './directives/on-appear.directive';
 import { ApiConnections }    from './services/api-connections.service';
 import { ArraySort }         from './services/array-sort.service';
 import { BodyScrollService } from './services/body-scroll.service';
+import { ModalOrientation }  from './services/modal-orientation.service';
 import { WINDOW_PROVIDERS }  from './services/window.service';
 
 // Pipes
@@ -70,6 +71,7 @@ import { FooterImagesComponent } from './global/footer-images/footer-images.comp
     ApiConnections,
     ArraySort,
     BodyScrollService,
+    ModalOrientation,
     WINDOW_PROVIDERS
   ],
   bootstrap: [AppComponent]
