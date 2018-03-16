@@ -104,7 +104,6 @@ export class MediaComponent implements OnInit {
         this.embedHtml = facebookPhotoEmbed;
         this.mediaHeight = this.embedHtml.height;
         this.mediaWidth = this.embedHtml.width;
-        console.log(this.mediaWidth);
 
         // Work out modal orintation
         if (this.mediaHeight > this.mediaWidth) {
@@ -112,14 +111,21 @@ export class MediaComponent implements OnInit {
         } else if (this.mediaWidth > this.mediaHeight) {
           this.position = 'landscape';
         }
-
-        console.log(this.position);
-
       });
     }
 
-    setTimeout(() => this.modalShow = true, 10);
-    setTimeout(() => this.modalAnimate = true, 20);
+    setTimeout(() => this.modalShow = true, 400);
+
+
+    // get width of current modal
+    // This needs testing when facebook API working again
+    if (this.position == 'portrait') {
+      this.mediaWidth = document.getElementById('image-modal').getAttribute('width');
+      console.log(this.mediaWidth);
+      this.mediaWidth = this.mediaWidth / 2;
+    }
+
+    setTimeout(() => this.modalAnimate = true, 500);
     this.bodyScrollService.removeScroll();
   }
 

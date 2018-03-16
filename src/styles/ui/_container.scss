@@ -9,6 +9,17 @@
   &[am-bg~="dark"] {
     background-color: map-get($color, "dark");
     color: map-get($color, "white");
+
+    p {
+      a {
+        color: map-get($color, "white");
+        @include animate(color, .3s, ease, 0s);
+
+        &:hover {
+          color: map-get($color, "light");
+        }
+      }
+    }
   }
 
   &[am-section~="park-info"] {

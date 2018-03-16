@@ -35,7 +35,8 @@ export class ContactComponent implements OnInit {
     this.apiConnections.getPage(15)
       .subscribe(pageInfo => {
         this.pageInfo = pageInfo;
-        this.pageTitle = this.pageInfo.title.rendered
+        this.pageTitle = this.pageInfo.title.rendered;
+        this.pageContent = this.pageInfo.content.rendered;
       });
   }
 

@@ -80,15 +80,6 @@ export class HomeComponent implements OnInit {
     return a.id - b.id;
   }
 
-  // Animate on view
-  onAppear(element) {
-    if (element == 'about') {
-      this.aboutTrigger = true;
-    } else if(element == 'events') {
-      this.eventsTrigger = true;
-    }
-  }
-
   // Parallax Scrolling
   @HostListener("window:scroll", [])
   onWindowScroll() {

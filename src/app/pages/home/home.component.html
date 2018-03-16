@@ -1,10 +1,6 @@
 <div am-hero></div>
 
-<div
-  am-section am-animate
-  (appear)="onAppear('about')"
-  [ngClass]="{'sa-visible': aboutTrigger}">
-
+<div am-section>
   <div am-container>
     <div am-row>
       <div am-col>
@@ -28,11 +24,7 @@
   </div>
 </div>
 
-<div
-  am-section am-bg="dark" am-animate
-  (appear)="onAppear('events')"
-  [ngClass]="{'sa-visible': eventsTrigger}">
-
+<div am-section am-bg="dark">
   <div am-container>
     <div am-row>
       <div am-col="sm-12" am-align="center">

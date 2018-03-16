@@ -8,8 +8,12 @@ export class ArraySort {
   public currentDate;
 
   constructor() {
+    // Setting date and formatting to work with midnight start time on FB events
     this.currentDate = new Date();
     this.currentDate = Date.parse(this.currentDate);
+    this.currentDate = this.currentDate.toString();
+    this.currentDate = this.currentDate.substr(0,4);
+    this.currentDate = this.currentDate + '000000000';
   }
 
   removePastDates(object) {

@@ -18,7 +18,9 @@
 
   <div
     am-modal="body"
-    [ngClass]="{'active': modalAnimate, 'video': modalType === 'video', 'photo': modalType === 'photo', 'landscape': position == 'landscape', 'portrait': position == 'portrait' }">
+    id="image-modal"
+    [ngClass]="{'active': modalAnimate, 'video': modalType === 'video', 'photo': modalType === 'photo', 'landscape': position == 'landscape', 'portrait': position == 'portrait' }"
+    [style.margin-left.px]="position == 'portrait' ? '-' + mediaWidth : null">
     <i class="fa fa-times" aria-hidden="true" (click)="hide()"></i>
     <img
       *ngIf="modalType == 'photo'"
