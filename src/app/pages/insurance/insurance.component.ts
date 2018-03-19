@@ -8,15 +8,15 @@ import { ApiConnections }    from '../../services/api-connections.service';
 })
 export class InsuranceComponent implements OnInit {
 
-  private insuranceInfo;
-  private pageTitle;
-  private mainCopy;
-  private personalMainInfo;
-  private personalTicklist;
-  private equipmentMainInfo;
-  private equipmentTicklist;
-  private personalCTA;
-  private equipmentCTA;
+  public insuranceInfo;
+  public pageTitle;
+  public mainCopy;
+  public personalMainInfo;
+  public personalTicklist;
+  public equipmentMainInfo;
+  public equipmentTicklist;
+  public personalCTA;
+  public equipmentCTA;
 
   constructor(private apiConnections: ApiConnections) {}
 

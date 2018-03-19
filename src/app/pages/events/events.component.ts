@@ -13,7 +13,7 @@ export class EventsComponent implements OnInit {
   public eventsUnordered;
   public eventsOrdered;
   public pageInfo;
-  private pageTitle: string;
+  public pageTitle: string;
 
 
   constructor(
@@ -39,8 +39,12 @@ export class EventsComponent implements OnInit {
       .subscribe(events => {
         this.eventsAll = events["data"];
 
+        console.log(this.eventsAll);
+
         // Remove past events
         this.arraySort.removePastDates(this.eventsAll);
+
+        console.log(this.eventsAll);
 
         // Get single event info and create new array
         this.getEventInfo(this.eventsAll);

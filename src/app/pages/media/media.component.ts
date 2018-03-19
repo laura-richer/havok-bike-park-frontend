@@ -13,19 +13,19 @@ export class MediaComponent implements OnInit {
   public facebookVideos;
   public media: any;
   public mediaSorted: any;
-  private fbAPI;
-  private apiKey;
+  public fbAPI;
+  public apiKey;
 
-  private modalShow: boolean = false;
-  private modalAnimate: boolean = false;
-  private modalSrc;
-  private modalType;
-  private embedHtml;
+  public modalShow: boolean = false;
+  public modalAnimate: boolean = false;
+  public modalSrc;
+  public modalType;
+  public embedHtml;
 
   // Modal sizing
-  private mediaHeight: any;
-  private mediaWidth: any;
-  private position: any;
+  public mediaHeight: any;
+  public mediaWidth: any;
+  public position: any;
 
   constructor(
     private apiConnections: ApiConnections,
@@ -77,11 +77,18 @@ export class MediaComponent implements OnInit {
     // Sort array and order by latest first
     setTimeout(() => this.mediaSorted = this.media.sort(this.sortNumber), 300);
     setTimeout(() => this.mediaSorted = this.mediaSorted.reverse(), 310);
-    //setTimeout(() => console.log(this.mediaSorted), 500);
   }
 
   sortNumber(a, b) {
     return a.formatted_time - b.formatted_time;
+  }
+
+  // Position modal for portrait images
+  modalPosition(position) {
+    if (position == 'portrait') {
+      this.mediaWidth = document.getElementById('modal').offsetWidth;
+      this.mediaWidth = this.mediaWidth / 2;
+    }
   }
 
   // Modal functionality
@@ -99,12 +106,7 @@ export class MediaComponent implements OnInit {
         this.position = this.modalOrientation.getDimensions('width', this.embedHtml);
 
         // Trigger modal functionality
-        // refactor into a service???
         setTimeout(() => this.modalShow = true, 400);
-
-        // Do we need this for video??
-        setTimeout(() => this.modalPositionVideo(), 450);
-
         setTimeout(() => this.modalAnimate = true, 500);
         this.bodyScrollService.removeScroll();
       });
@@ -115,41 +117,16 @@ export class MediaComponent implements OnInit {
         this.mediaHeight = this.embedHtml.height;
         this.mediaWidth = this.embedHtml.width;
 
-        // Work out modal orintation
-        // ADD INTO SERVICE - see below //
-        if (this.mediaHeight > this.mediaWidth) {
-          this.position = 'portrait';
-        } else if (this.mediaWidth > this.mediaHeight) {
-          this.position = 'landscape';
-        }
-
-        // TEST //
-        // Service version of the about if statement
-        //this.position = this.modalOrientation.getOrintation(this.mediaWidth, this.mediaHeight);
-        //console.log(this.position);
+        // Get orientation of modal
+        this.position = this.modalOrientation.getImageOrientation(this.mediaWidth, this.mediaHeight);
 
         // Trigger modal functionality
-        // refactor into a service???
         setTimeout(() => this.modalShow = true, 400);
-        setTimeout(() => this.modalPositionPhoto(this.position), 450);
+        setTimeout(() => this.modalPosition(this.position), 450);
         setTimeout(() => this.modalAnimate = true, 500);
         this.bodyScrollService.removeScroll();
       });
     }
-  }
-
-  // Position modal for portrait images
-  //Do we need this for videos?
-  modalPositionPhoto(position) {
-    if (position == 'portrait') {
-      this.mediaWidth = document.getElementById('modal').offsetWidth;
-      this.mediaWidth = this.mediaWidth / 2;
-    }
-  }
-
-  // Do we need this for video??
-  modalPositionVideo() {
-    this.mediaWidth = document.getElementById('modal').offsetWidth;
   }
 
   hide(): void {

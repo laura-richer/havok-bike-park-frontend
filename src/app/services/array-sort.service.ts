@@ -12,15 +12,22 @@ export class ArraySort {
     this.currentDate = new Date();
     this.currentDate = Date.parse(this.currentDate);
     this.currentDate = this.currentDate.toString();
-    this.currentDate = this.currentDate.substr(0,4);
-    this.currentDate = this.currentDate + '000000000';
   }
 
   removePastDates(object) {
     this.eventsAll = object;
+    var eventDate;
+    var eventDateFormatted;
 
     // Remove past events
+    // Safari returning as NaN
     for (var i = object.length - 1; i >= 0; --i) {
+      eventDate = object[i].start_time.replace("-", "/")
+      console.log(eventDate);
+
+      eventDateFormatted = Date.parse(eventDate);
+      console.log(eventDateFormatted);
+
       if ( Date.parse(object[i].start_time) < this.currentDate) {
         this.eventsAll.splice(i,1);
       }

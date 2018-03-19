@@ -8,13 +8,13 @@ import { ApiConnections }    from '../../services/api-connections.service';
 })
 export class FooterComponent implements OnInit {
 
-  private stripURL;
-  private today;
-  private siteName;
-  private footerNavItems;
-  private openingTimes;
-  private facebookLink;
-  private instagramLink;
+  public stripURL;
+  public today;
+  public siteName;
+  public footerNavItems;
+  public openingTimes;
+  public facebookLink;
+  public instagramLink;
 
   constructor(private apiConnections: ApiConnections) {
     this.today = new Date().getFullYear();

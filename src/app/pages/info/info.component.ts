@@ -11,12 +11,12 @@ export class InfoComponent implements OnInit {
   public lat: number = 53.7302025;
   public lng: number = -2.1534588;
 
-  private pageInfo;
-  private pageTitle: string;
-  private openingTimes;
-  private prices;
-  private address;
-  private emailAddress;
+  public pageInfo;
+  public pageTitle: string;
+  public openingTimes;
+  public prices;
+  public address;
+  public emailAddress;
 
   constructor(private apiConnections: ApiConnections) {}
 
