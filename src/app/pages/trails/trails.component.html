@@ -1,5 +1,15 @@
-<p>
-  trails works!
-</p>
+<div am-section="trails" am-bg="white">
+  <div am-container>
+    <div am-row>
+      <div am-col="sm-12 md-6 lg-4" am-trail *ngFor="let trail of trailInfo" class="equalize">
+        <h3 am-subtitle>{{ trail.trail_name }}</h3>
+        <p>{{ trail.trail_grade }}</p>
+        <div
+          *ngIf="trail.trail_description"
+          [innerHTML]="trail.trail_description | keepHtml"></div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <footer-images></footer-images>
