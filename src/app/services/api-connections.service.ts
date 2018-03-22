@@ -4,31 +4,21 @@ import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class ApiConnections {
 
-  private wpAPI;
-  private menus;
-  private pages;
-  private content;
-  private acfOptions;
+  // Wordpress API paths
+  private wpAPI: string = 'http://api.havokbikepark.com/wp-json/';
+  private menus: string = 'menus/v1/menus/';
+  private pages: string = 'pages/';
+  private content: string = 'wp/v2/';
+  private acfOptions: string = 'acf/v2/options/';
 
-  private fbAPI;
-  private userId;
-  private apiKey;
+  // Facebook API paths
+  private fbAPI: string = 'https://graph.facebook.com/';
+  private userId: string = '294138224007098/';
+  private apiKey: string = 'EAAGZBsrRFgEABAM4QFDXIMI6OqZAQJ2VaRSRyHjz01KFPZCThYOziH955CzaTRvvq36HaU67AsaxURvGBvtaCgB8NxP4hsh6AW2pj10mKvv4um0VNVjyg3WT1ZBDwcmcynAJW3nPtxGvKIQEO6ScGzZBAbYGoW08kCGMJHwabngZDZD';
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient) {}
 
-    // Wordpress API paths
-    this.wpAPI = 'http://api.havokbikepark.com/wp-json/';
-    this.menus = 'menus/v1/menus/';
-    this.content ='wp/v2/';
-    this.pages = 'pages/';
-    this.acfOptions = 'acf/v2/options/'
-
-    // Facebook API paths
-    this.fbAPI = 'https://graph.facebook.com/'
-    this.userId = '294138224007098/';
-    this.apiKey = 'EAAGZBsrRFgEABAM4QFDXIMI6OqZAQJ2VaRSRyHjz01KFPZCThYOziH955CzaTRvvq36HaU67AsaxURvGBvtaCgB8NxP4hsh6AW2pj10mKvv4um0VNVjyg3WT1ZBDwcmcynAJW3nPtxGvKIQEO6ScGzZBAbYGoW08kCGMJHwabngZDZD';
-  }
-
+  // Get basic page
   getBasic() {
     return this.http.get(this.wpAPI);
   }

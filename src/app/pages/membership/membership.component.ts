@@ -17,6 +17,8 @@ export class MembershipComponent implements OnInit {
   constructor(private apiConnections: ApiConnections) {}
 
   ngOnInit() {
+
+    // Get page info from API
     this.apiConnections.getPage(30)
       .subscribe(membership => {
         this.membership = membership;

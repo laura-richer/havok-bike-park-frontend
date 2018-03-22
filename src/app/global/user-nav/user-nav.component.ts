@@ -13,6 +13,8 @@ export class UserNavComponent implements OnInit {
   constructor(private apiConnections: ApiConnections) {}
 
   ngOnInit() {
+
+    // Get menu items from API
     this.apiConnections.getMenu("top")
       .subscribe(data => {
         this.userNavItems = data["items"];

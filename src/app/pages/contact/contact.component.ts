@@ -22,6 +22,8 @@ export class ContactComponent implements OnInit {
     private formBuilder: FormBuilder,
     private http: HttpClient) {
 
+
+    // Build contact form
     this.contactForm = this.formBuilder.group({
       fullName: ['', Validators.required],
       emailAddress: ['', FormValidator.emailValidator],
@@ -32,6 +34,8 @@ export class ContactComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    // Get page info from API
     this.apiConnections.getPage(15)
       .subscribe(pageInfo => {
         this.pageInfo = pageInfo;
@@ -40,6 +44,7 @@ export class ContactComponent implements OnInit {
       });
   }
 
+  // WIP - contact form POST to API
   contactFormSubmit() {
     this.formInfo = "name=" + this.contactForm.value.fullName + "&email=" + this.contactForm.value.emailAddress + "&phone=" + this.contactForm.value.phoneNumber + "&message=" + this.contactForm.value.message;
     console.log(this.formInfo);

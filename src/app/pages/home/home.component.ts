@@ -26,12 +26,15 @@ export class HomeComponent implements OnInit {
     @Inject(DOCUMENT) private document: Document,
     @Inject(WINDOW) private window: Window) {
 
+    // Set empty arrays
     this.eventsAll = 1;
     this.eventsUnordered = [];
     this.eventsOrdered = [];
   }
 
   ngOnInit(): void {
+
+    // Get page info from API
     this.apiConnections.getPage(5)
       .subscribe(about => {
         this.about = about["content"]["rendered"];
@@ -75,7 +78,7 @@ export class HomeComponent implements OnInit {
   }
 
   // Sort into ID order
-  // Move to service
+  // Need to move to service
   sortNumber(a, b) {
     return a.id - b.id;
   }

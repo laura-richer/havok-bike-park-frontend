@@ -10,6 +10,7 @@ export class ModalOrientation {
 
   constructor() {}
 
+  // Get dimensions iframe
   getDimensions(edge, src) {
     // create array splitting by spaces
     this.createArray = src.split(" ");

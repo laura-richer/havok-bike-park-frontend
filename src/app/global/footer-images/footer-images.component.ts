@@ -8,17 +8,19 @@ import { ApiConnections }    from '../../services/api-connections.service';
 export class FooterImagesComponent implements OnInit {
 
   public facebookPhotos;
-  public fbAPI;
-  public apiKey;
+  public fbAPI: string = 'https://graph.facebook.com/';
+  public apiKey: string = 'EAAGZBsrRFgEABAM4QFDXIMI6OqZAQJ2VaRSRyHjz01KFPZCThYOziH955CzaTRvvq36HaU67AsaxURvGBvtaCgB8NxP4hsh6AW2pj10mKvv4um0VNVjyg3WT1ZBDwcmcynAJW3nPtxGvKIQEO6ScGzZBAbYGoW08kCGMJHwabngZDZD';
   public media;
 
   constructor(private apiConnections: ApiConnections) {
-    this.fbAPI = 'https://graph.facebook.com/'
-    this.apiKey = 'EAAGZBsrRFgEABAM4QFDXIMI6OqZAQJ2VaRSRyHjz01KFPZCThYOziH955CzaTRvvq36HaU67AsaxURvGBvtaCgB8NxP4hsh6AW2pj10mKvv4um0VNVjyg3WT1ZBDwcmcynAJW3nPtxGvKIQEO6ScGzZBAbYGoW08kCGMJHwabngZDZD';
+
+    // set empty array
     this.media = [];
   }
 
   ngOnInit() {
+
+    // connect to Facebook API to get uploaded photos
      this.apiConnections.getFacebookList("photos?type=uploaded&limit=4&access_token=")
       .subscribe(facebookPhotos => {
 

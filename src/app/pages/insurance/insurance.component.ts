@@ -21,6 +21,8 @@ export class InsuranceComponent implements OnInit {
   constructor(private apiConnections: ApiConnections) {}
 
   ngOnInit() {
+
+    // Get page info from API
     this.apiConnections.getPage(32)
       .subscribe(insurance => {
         this.insuranceInfo = insurance;

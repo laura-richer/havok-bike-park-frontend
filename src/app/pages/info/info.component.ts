@@ -21,12 +21,15 @@ export class InfoComponent implements OnInit {
   constructor(private apiConnections: ApiConnections) {}
 
   ngOnInit() {
+
+    // Get page info from API
     this.apiConnections.getPage(9)
       .subscribe(pageInfo => {
         this.pageInfo = pageInfo;
         this.pageTitle = this.pageInfo.title.rendered;
       });
 
+      // Get generic site info from API
      this.apiConnections.getACFOptions()
       .subscribe(acfData => {
         this.openingTimes = acfData["acf"]["opening_times"];

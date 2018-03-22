@@ -20,6 +20,7 @@ export class EventsComponent implements OnInit {
     private apiConnections: ApiConnections,
     private arraySort: ArraySort) {
 
+    // Set empty arrays
     this.eventsAll = 1;
     this.eventsUnordered = [];
     this.eventsOrdered = [];
@@ -74,7 +75,7 @@ export class EventsComponent implements OnInit {
   }
 
   // Sort into ID order
-  // Move to service
+  // Need to move to service
   sortNumber(a, b) {
     return a.id - b.id;
   }

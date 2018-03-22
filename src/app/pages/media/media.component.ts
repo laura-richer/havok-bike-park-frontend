@@ -13,8 +13,8 @@ export class MediaComponent implements OnInit {
   public facebookVideos;
   public media: any;
   public mediaSorted: any;
-  public fbAPI;
-  public apiKey;
+  public fbAPI: string = 'https://graph.facebook.com/';
+  public apiKey: string = 'EAAGZBsrRFgEABAM4QFDXIMI6OqZAQJ2VaRSRyHjz01KFPZCThYOziH955CzaTRvvq36HaU67AsaxURvGBvtaCgB8NxP4hsh6AW2pj10mKvv4um0VNVjyg3WT1ZBDwcmcynAJW3nPtxGvKIQEO6ScGzZBAbYGoW08kCGMJHwabngZDZD';
 
   public modalShow: boolean = false;
   public modalAnimate: boolean = false;
@@ -31,8 +31,8 @@ export class MediaComponent implements OnInit {
     private apiConnections: ApiConnections,
     private bodyScrollService: BodyScrollService,
     private modalOrientation: ModalOrientation) {
-    this.fbAPI = 'https://graph.facebook.com/'
-    this.apiKey = 'EAAGZBsrRFgEABAM4QFDXIMI6OqZAQJ2VaRSRyHjz01KFPZCThYOziH955CzaTRvvq36HaU67AsaxURvGBvtaCgB8NxP4hsh6AW2pj10mKvv4um0VNVjyg3WT1ZBDwcmcynAJW3nPtxGvKIQEO6ScGzZBAbYGoW08kCGMJHwabngZDZD';
+
+    // Set empty arrays
     this.media = [];
     this.mediaSorted = [];
   }
@@ -46,6 +46,7 @@ export class MediaComponent implements OnInit {
         this.facebookPhotos = facebookPhotos;
         this.facebookPhotos = this.facebookPhotos.data;
 
+        // Add to generic media array
         for (var i = 0; i < this.facebookPhotos.length; i++) {
           this.media.push({
             'id': this.facebookPhotos[i].id,
@@ -63,6 +64,7 @@ export class MediaComponent implements OnInit {
         this.facebookVideos = facebookVideos;
         this.facebookVideos = this.facebookVideos.data;
 
+        // Add to generic media array
         for (var i = 0; i < this.facebookVideos.length; i++) {
           this.media.push({
             'id': this.facebookVideos[i].id,
@@ -79,6 +81,8 @@ export class MediaComponent implements OnInit {
     setTimeout(() => this.mediaSorted = this.mediaSorted.reverse(), 310);
   }
 
+  // Sort by date order
+  // Need to move to service
   sortNumber(a, b) {
     return a.formatted_time - b.formatted_time;
   }
@@ -129,12 +133,14 @@ export class MediaComponent implements OnInit {
     }
   }
 
+  // Hide modal
   hide(): void {
     this.modalShow = false;
     setTimeout(() => this.modalAnimate = false, 10);
     this.bodyScrollService.addScroll();
   }
 
+  // Hide on click outside the modal area
   onContainerClicked(event: MouseEvent): void {
     if ((<HTMLElement>event.target).classList.contains('modal')) {
       this.hide();

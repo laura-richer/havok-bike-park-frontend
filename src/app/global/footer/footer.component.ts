@@ -17,11 +17,15 @@ export class FooterComponent implements OnInit {
   public instagramLink;
 
   constructor(private apiConnections: ApiConnections) {
+
+    // Get current year
     this.today = new Date().getFullYear();
 
   }
 
   ngOnInit() {
+
+    // Get footer info from API
     this.apiConnections.getBasic()
       .subscribe(data => {
         this.siteName = data["name"];

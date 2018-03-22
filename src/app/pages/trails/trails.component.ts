@@ -26,6 +26,7 @@ export class TrailsComponent implements OnInit {
     // Get initial window size
     this.windowWidth = window.innerWidth;
 
+    // Get page info from API
     this.apiConnections.getPage(11)
       .subscribe(trails => {
         this.trails = trails;
@@ -36,6 +37,7 @@ export class TrailsComponent implements OnInit {
 
   // Trigger equal height stuff after view has built
   ngAfterViewInit() {
+
     // Get initial window size
     this.windowWidth = window.innerWidth;
 

@@ -5,6 +5,7 @@ export class BodyScrollService {
 
   private pageBody: any = document.getElementsByTagName('body')[0];
 
+  // remove scroll when modal open
   removeScroll() {
     if (/Mobi/.test(navigator.userAgent)) {
 
@@ -20,6 +21,7 @@ export class BodyScrollService {
     }
   }
 
+  // add scroll when modal closes
   addScroll() {
     this.pageBody.classList.remove('no-scroll', 'fixed');
   }
