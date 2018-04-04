@@ -28,7 +28,7 @@
           <div [innerHTML]="benefitsIntro | keepHtml"></div>
 
           <ul am-list>
-            <li *ngFor="let benefit of benefits">{{ benefit.benefit_point }}</li>
+            <li *ngFor="let benefit of benefits"><span [innerHTML]="benefit.benefit_point | keepHtml"></span></li>
           </ul>
         </div>
       </div>

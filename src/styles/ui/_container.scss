@@ -28,6 +28,19 @@
 
       li {
         margin-left: cRem(15);
+
+        p {
+          margin: 0;
+
+          a {
+            color: map-get($color, "dark");
+            @include animate(color, .3s, ease, 0s);
+
+            &:hover {
+              color: map-get($color, "light");
+            }
+          }
+        }
       }
 
       h4 {
