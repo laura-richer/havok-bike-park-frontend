@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { DOCUMENT }          from '@angular/platform-browser';
-import { ApiConnections }    from '../../services/api-connections.service';
-import { Observable }        from 'rxjs/Rx';
+import { DOCUMENT, Title }           from '@angular/platform-browser';
+import { ApiConnections }            from '../../services/api-connections.service';
+import { Observable }                from 'rxjs/Rx';
 
 @Component({
   selector: 'app-trails',
@@ -21,9 +21,14 @@ export class TrailsComponent implements OnInit {
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
-    private apiConnections: ApiConnections) {}
+    private apiConnections: ApiConnections,
+    private titleService: Title) {}
 
   ngOnInit() {
+
+    // Set meta title
+    this.titleService.setTitle('Trails | Havok Bike Park');
+
     // Get initial window size
     this.windowWidth = window.innerWidth;
 
@@ -75,7 +80,7 @@ export class TrailsComponent implements OnInit {
 
     for (var i = 0; i < this.findClass.length; i++) {
 
-      if (this.windowWidth > 768) {
+      if (this.windowWidth > 767) {
         this.findClass[i].style.height = this.maxHeightName + 'px';
       } else {
         this.findClass[i].style.height = 'auto';

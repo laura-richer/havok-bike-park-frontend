@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title }             from "@angular/platform-browser";
 import { ApiConnections }    from '../../services/api-connections.service';
 import { ArraySort }         from '../../services/array-sort.service';
 
@@ -18,7 +19,8 @@ export class EventsComponent implements OnInit {
 
   constructor(
     private apiConnections: ApiConnections,
-    private arraySort: ArraySort) {
+    private arraySort: ArraySort,
+    private titleService: Title) {
 
     // Set empty arrays
     this.eventsAll = 1;
@@ -27,6 +29,9 @@ export class EventsComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    // Set meta title
+    this.titleService.setTitle('Events | Havok Bike Park');
 
     // Get page info
     this.apiConnections.getPage(7)

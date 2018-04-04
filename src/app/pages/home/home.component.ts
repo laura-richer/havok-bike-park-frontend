@@ -1,5 +1,5 @@
 import { Component, OnInit, HostListener, Inject } from '@angular/core';
-import { DOCUMENT }                                from "@angular/platform-browser";
+import { DOCUMENT, Title }                         from "@angular/platform-browser";
 import { WINDOW }                                  from "../../services/window.service";
 import { ApiConnections }                          from '../../services/api-connections.service';
 import { ArraySort }                               from '../../services/array-sort.service';
@@ -23,6 +23,7 @@ export class HomeComponent implements OnInit {
   constructor(
     private apiConnections: ApiConnections,
     private arraySort: ArraySort,
+    private titleService: Title,
     @Inject(DOCUMENT) private document: Document,
     @Inject(WINDOW) private window: Window) {
 
@@ -33,6 +34,9 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    // Set meta title
+    this.titleService.setTitle('Home | Havok Bike Park');
 
     // Get page info from API
     this.apiConnections.getPage(5)

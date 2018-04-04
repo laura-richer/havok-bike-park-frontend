@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title }             from "@angular/platform-browser";
 import { ApiConnections }    from '../../services/api-connections.service';
 
 
@@ -18,9 +19,14 @@ export class InfoComponent implements OnInit {
   public address;
   public emailAddress;
 
-  constructor(private apiConnections: ApiConnections) {}
+  constructor(
+    private apiConnections: ApiConnections,
+    private titleService: Title) {}
 
   ngOnInit() {
+
+    // Set meta title
+    this.titleService.setTitle('Park Info | Havok Bike Park');
 
     // Get page info from API
     this.apiConnections.getPage(9)

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Title }             from "@angular/platform-browser";
 import { ApiConnections }    from '../../services/api-connections.service';
-
 
 @Component({
   selector: 'app-insurance',
@@ -18,9 +18,14 @@ export class InsuranceComponent implements OnInit {
   public personalCTA;
   public equipmentCTA;
 
-  constructor(private apiConnections: ApiConnections) {}
+  constructor(
+    private apiConnections: ApiConnections,
+    private titleService: Title) {}
 
   ngOnInit() {
+
+    // Set meta title
+    this.titleService.setTitle('Insurance | Havok Bike Park');
 
     // Get page info from API
     this.apiConnections.getPage(32)

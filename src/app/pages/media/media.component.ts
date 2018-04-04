@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title }             from "@angular/platform-browser";
 import { ApiConnections }    from '../../services/api-connections.service';
 import { BodyScrollService } from '../../services/body-scroll.service';
 import { ModalOrientation }  from '../../services/modal-orientation.service';
@@ -30,7 +31,8 @@ export class MediaComponent implements OnInit {
   constructor(
     private apiConnections: ApiConnections,
     private bodyScrollService: BodyScrollService,
-    private modalOrientation: ModalOrientation) {
+    private modalOrientation: ModalOrientation,
+    private titleService: Title) {
 
     // Set empty arrays
     this.media = [];
@@ -38,6 +40,9 @@ export class MediaComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    // Set meta title
+    this.titleService.setTitle('Media | Havok Bike Park');
 
     // get 25 latest facebook images
     this.apiConnections.getFacebookList("photos?type=uploaded&access_token=")

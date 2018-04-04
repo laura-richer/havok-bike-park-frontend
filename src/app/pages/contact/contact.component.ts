@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit }                  from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ApiConnections }    from '../../services/api-connections.service';
-import { FormValidator }     from '../../validators/form-validator';
+import { Title }                              from "@angular/platform-browser";
+import { ApiConnections }                     from '../../services/api-connections.service';
+import { FormValidator }                      from '../../validators/form-validator';
 
 import { HttpClient } from '@angular/common/http';
 
@@ -20,7 +21,8 @@ export class ContactComponent implements OnInit {
   constructor(
     private apiConnections: ApiConnections,
     private formBuilder: FormBuilder,
-    private http: HttpClient) {
+    private http: HttpClient,
+    private titleService: Title) {
 
 
     // Build contact form
@@ -34,6 +36,9 @@ export class ContactComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    // Set meta title
+    this.titleService.setTitle('Contact Us | Havok Bike Park');
 
     // Get page info from API
     this.apiConnections.getPage(15)

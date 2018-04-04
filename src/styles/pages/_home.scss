@@ -1,6 +1,8 @@
 // Home page styles
 [am-title~="about"] {
-  margin-bottom: cRem(100);
+  @media #{$above-sm} {
+    margin-bottom: cRem(100);
+  }
 }
 
 [am-row~="about"] {
