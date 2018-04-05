@@ -14,7 +14,7 @@ export class ApiConnections {
   // Facebook API paths
   private fbAPI: string = 'https://graph.facebook.com/';
   private userId: string = '294138224007098/';
-  private apiKey: string = 'EAAGZBsrRFgEABAM4QFDXIMI6OqZAQJ2VaRSRyHjz01KFPZCThYOziH955CzaTRvvq36HaU67AsaxURvGBvtaCgB8NxP4hsh6AW2pj10mKvv4um0VNVjyg3WT1ZBDwcmcynAJW3nPtxGvKIQEO6ScGzZBAbYGoW08kCGMJHwabngZDZD';
+  private apiKey: string = 'EAAGZBsrRFgEABALZCXl9xfuDCJgG1wQvZAsli5iDkUC5JrMx0J7ejc3BwRlWSdldft5Y13TqnBmUHmg1P5hQTc5TIbS9KrEQCO3ggk3OsQeSgcLr6RUdqPnKNGWWTYp4sfUyKJX56AXiHlNVkJJTVzTBsJxt0UZD';
 
   constructor(private http: HttpClient) {}
 

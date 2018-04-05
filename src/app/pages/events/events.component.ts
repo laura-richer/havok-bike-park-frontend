@@ -63,7 +63,6 @@ export class EventsComponent implements OnInit {
 
       this.apiConnections.getFacebookSingleEvent(this.eventsAll[i].id)
         .subscribe(singleEvent => {
-
           this.eventsUnordered.push({
             'id': singleEvent["id"],
             'start_time': singleEvent["start_time"],
