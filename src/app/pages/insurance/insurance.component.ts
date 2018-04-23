@@ -17,6 +17,9 @@ export class InsuranceComponent implements OnInit {
   public equipmentTicklist;
   public personalCTA;
   public equipmentCTA;
+  public featuredImage;
+  public media;
+  public source;
 
   constructor(
     private apiConnections: ApiConnections,
@@ -40,6 +43,14 @@ export class InsuranceComponent implements OnInit {
         this.equipmentMainInfo = this.insuranceInfo["acf"]["equipment_main_info"];
         this.equipmentTicklist = this.insuranceInfo["acf"]["equipment_ticklist"];
         this.equipmentCTA = this.insuranceInfo["acf"]["equipment_cta_image"];
+
+        this.featuredImage = this.insuranceInfo["featured_media"];
+
+        this.apiConnections.getMedia(this.featuredImage)
+          .subscribe(media => {
+            this.media = media;
+            this.source = this.media["source_url"];
+          });
       });
   }
 

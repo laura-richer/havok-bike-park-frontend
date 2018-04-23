@@ -1,23 +1,39 @@
 // Hero styles
 [am-hero] {
   margin: 0 cRem(25);
-  background-color: red;
-  height: 30vh;
-  background: url(../assets/images/homepage/hero-banner.jpg) no-repeat right bottom;
-  background-size: cover;
 
-  @media #{$above-sm} {
-    height: 40vh;
+  &[am-hero~="home"] {
+    height: 30vh;
+    background: url(../assets/images/homepage/hero-banner.jpg) no-repeat right bottom;
+    background-size: cover;
+
+    @media #{$above-sm} {
+      height: 40vh;
+    }
+
+    @media #{$above-md} {
+      height: 55vh;
+      background-size: cover;
+    }
+
+    @media #{$above-lg} {
+      height: 70vh;
+      background: url(../assets/images/homepage/hero-banner.jpg) no-repeat center center;
+      background-size: cover;
+    }
   }
 
-  @media #{$above-md} {
-    height: 55vh;
+  &[am-hero~="insurance"] {
+    height: 20vh;
+    background: url(../assets/images/Monster-insurance-banner.png) no-repeat center center;
     background-size: cover;
-  }
 
-  @media #{$above-lg} {
-    height: 70vh;
-    background: url(../assets/images/homepage/hero-banner.jpg) no-repeat center center;
-    background-size: cover;
+    @media #{$above-md} {
+      height: 30vh;
+    }
+
+    @media #{$above-lg} {
+      height: 35vh;
+    }
   }
 }

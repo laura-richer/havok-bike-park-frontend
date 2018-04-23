@@ -8,6 +8,7 @@ export class ApiConnections {
   private wpAPI: string = 'http://api.havokbikepark.com/wp-json/';
   private menus: string = 'menus/v1/menus/';
   private pages: string = 'pages/';
+  private media: string = 'media/'
   private content: string = 'wp/v2/';
   private acfOptions: string = 'acf/v2/options/';
 
@@ -31,6 +32,10 @@ export class ApiConnections {
   // Get page data
   getPage(id){
     return this.http.get(this.wpAPI + this.content + this.pages + id);
+  }
+
+  getMedia(id) {
+    return this.http.get(this.wpAPI + this.content + this.media + id);
   }
 
   // Get ACF options

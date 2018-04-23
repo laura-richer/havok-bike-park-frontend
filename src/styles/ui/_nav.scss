@@ -31,12 +31,18 @@
       }
     }
 
-    @media screen and (max-width: 530px) {
+    @media screen and (max-width: 600px) {
       text-align: center;
       float: none;
 
       li {
         font-size: cRem(14);
+      }
+    }
+
+    @media screen and (max-width: 400px) {
+      li {
+        margin: 0 4px;
       }
     }
   }

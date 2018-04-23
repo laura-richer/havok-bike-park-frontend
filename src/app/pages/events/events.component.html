@@ -4,7 +4,10 @@
       <div am-col="sm-12" am-align="center">
         <h2 am-title>{{ pageTitle }}</h2>
       </div>
-      <p *ngIf="eventsAll.length <= 0">There are currently no planned events.</p>
+
+      <div am-col="sm-12" am-align="center" *ngIf="eventsAll.length <= 0">
+        <p >There are currently no planned events.</p>
+      </div>
 
       <ul *ngIf="eventsAll.length > 0" am-col="sm-12 lg-10" am-push="lg-1" am-event>
         <li *ngFor="let event of eventsOrdered; let i=index" am-col="sm-12">
