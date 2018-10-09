@@ -30,7 +30,7 @@ export class ApiConnections {
   }
 
   // Get page data
-  getPage(id){
+  getPage(id) {
     return this.http.get(this.wpAPI + this.content + this.pages + id);
   }
 
@@ -39,12 +39,12 @@ export class ApiConnections {
   }
 
   // Get ACF options
-  getACFOptions(){
+  getACFOptions() {
     return this.http.get(this.wpAPI + this.acfOptions);
   }
 
   // Get post list
-  getCustomPost(slug){
+  getCustomPost(slug) {
     return this.http.get(this.wpAPI + this.content + slug);
   }
 

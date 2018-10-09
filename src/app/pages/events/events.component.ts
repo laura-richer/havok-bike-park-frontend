@@ -37,7 +37,7 @@ export class EventsComponent implements OnInit {
     this.apiConnections.getPage(7)
       .subscribe(pageInfo => {
         this.pageInfo = pageInfo;
-        this.pageTitle = this.pageInfo.title.rendered
+        this.pageTitle = this.pageInfo.title.rendered;
       });
 
     // Get events from facebook
@@ -52,6 +52,7 @@ export class EventsComponent implements OnInit {
         this.getEventInfo(this.eventsAll);
 
         // Sort array into correct order
+        // Do this as callback
         setTimeout(() => this.eventsUnordered.sort(this.sortNumber), 500);
         setTimeout(() => this.eventsOrdered = this.eventsUnordered.reverse(), 510);
       });
