@@ -9,6 +9,7 @@ import { Observable }                from 'rxjs/Rx';
 })
 export class TrailsComponent implements OnInit {
 
+  // Content vars
   public trails;
   public trailInfo;
   public trailMap;
