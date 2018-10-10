@@ -8,6 +8,7 @@ import { ApiConnections }    from '../../services/api-connections.service';
 })
 export class InsuranceComponent implements OnInit {
 
+  // Content vars
   public equipmentCTA;
   public equipmentMainInfo;
   public equipmentTicklist;
