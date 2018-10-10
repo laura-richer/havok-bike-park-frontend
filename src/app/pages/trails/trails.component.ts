@@ -38,8 +38,6 @@ export class TrailsComponent implements OnInit {
         this.trails = trails;
         this.trailInfo = this.trails["acf"]["trail_info"];
         this.trailMap = this.trails["acf"]["trail_map"]
-
-        setTimeout(() => this.equalHeight(), 100);
       });
   }
 
@@ -57,6 +55,10 @@ export class TrailsComponent implements OnInit {
     });
   }
 
+  ngAfterContentChecked() {
+    this.equalHeight();
+  }
+
   // Store window width and reinit equalize
   getWindowWidth(e) {
     this.windowWidth = e.target.innerWidth;
@@ -66,7 +68,7 @@ export class TrailsComponent implements OnInit {
   // Make menu description same height
   equalHeight() {
     this.maxHeightName = 0;
-    this.findClass = document.getElementsByClassName('equalize');
+    this.findClass = document.querySelectorAll('.equalize');
 
     // Loop over matching divs
     for (var i = 0; i < this.findClass.length; i++) {
