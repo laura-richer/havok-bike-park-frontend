@@ -8,13 +8,13 @@ import { ApiConnections }    from '../../services/api-connections.service';
 })
 export class FooterComponent implements OnInit {
 
+  public facebookLink;
+  public footerNavItems;
+  public instagramLink;
+  public openingTimes;
+  public siteName;
   public stripURL;
   public today;
-  public siteName;
-  public footerNavItems;
-  public openingTimes;
-  public facebookLink;
-  public instagramLink;
 
   constructor(private apiConnections: ApiConnections) {
 
@@ -28,19 +28,19 @@ export class FooterComponent implements OnInit {
     // Get footer info from API
     this.apiConnections.getBasic()
       .subscribe(data => {
-        this.siteName = data["name"];
+        this.siteName = data['name'];
       });
 
     this.apiConnections.getMenu("social")
       .subscribe(data => {
-        this.footerNavItems = data["items"];
+        this.footerNavItems = data['items'];
       });
 
      this.apiConnections.getACFOptions()
       .subscribe(data => {
-        this.openingTimes = data["acf"]["opening_times"];
-        this.facebookLink = data["acf"]["facebook_page"];
-        this.instagramLink = data["acf"]["instagram_page"];
+        this.facebookLink = data['acf']['facebook_page'];
+        this.instagramLink = data['acf']['instagram_page'];
+        this.openingTimes = data['acf']['opening_times'];
       });
   }
 

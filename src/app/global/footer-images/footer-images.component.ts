@@ -21,11 +21,10 @@ export class FooterImagesComponent implements OnInit {
   ngOnInit() {
 
     // connect to Facebook API to get uploaded photos
-     this.apiConnections.getFacebookList("photos?type=uploaded&limit=4&access_token=")
+     this.apiConnections.getFacebookList('photos?type=uploaded&limit=4&access_token=')
       .subscribe(facebookPhotos => {
 
-        this.facebookPhotos = facebookPhotos;
-        this.facebookPhotos = this.facebookPhotos.data;
+        this.facebookPhotos = facebookPhotos['data'];
 
         for (var i = 0; i < this.facebookPhotos.length; i++) {
           this.media.push({
