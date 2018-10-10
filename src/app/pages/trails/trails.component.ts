@@ -41,8 +41,8 @@ export class TrailsComponent implements OnInit {
     // Get page info from API
     this.apiConnections.getPage(11)
       .subscribe(trails => {
-        this.trailInfo = trails["acf"]["trail_info"];
-        this.trailMap = trails["acf"]["trail_map"]
+        this.trailInfo = trails['acf']['trail_info'];
+        this.trailMap = trails['acf']['trail_map'];
       });
   }
 

@@ -9,15 +9,16 @@ import { ApiConnections }    from '../../services/api-connections.service';
 })
 export class InfoComponent implements OnInit {
 
+  // Vars
   public lat: number = 53.7302025;
   public lng: number = -2.1534588;
 
-  public pageInfo;
-  public pageTitle: string;
-  public openingTimes;
-  public prices;
+  // Content vars
   public address;
   public emailAddress;
+  public openingTimes;
+  public pageTitle: string;
+  public prices;
 
   constructor(
     private apiConnections: ApiConnections,
@@ -31,17 +32,16 @@ export class InfoComponent implements OnInit {
     // Get page info from API
     this.apiConnections.getPage(9)
       .subscribe(pageInfo => {
-        this.pageInfo = pageInfo;
-        this.pageTitle = this.pageInfo.title.rendered;
+        this.pageTitle = pageInfo['title']['rendered'];
       });
 
       // Get generic site info from API
      this.apiConnections.getACFOptions()
       .subscribe(acfData => {
-        this.openingTimes = acfData["acf"]["opening_times"];
-        this.prices = acfData["acf"]["membership_prices"];
         this.address = acfData["acf"]["location_address"];
         this.emailAddress = acfData["acf"]["email_address"];
+        this.openingTimes = acfData["acf"]["opening_times"];
+        this.prices = acfData["acf"]["membership_prices"];
       });
   }
 

@@ -12,11 +12,11 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ContactComponent implements OnInit {
 
-  public pageInfo: any;
-  public pageTitle: string;
-  public pageContent: string;
-  public formInfo: any;
+  // Content vars
   private contactForm: FormGroup;
+  public formInfo: any;
+  public pageContent: string;
+  public pageTitle: string;
 
   constructor(
     private apiConnections: ApiConnections,
@@ -43,16 +43,14 @@ export class ContactComponent implements OnInit {
     // Get page info from API
     this.apiConnections.getPage(15)
       .subscribe(pageInfo => {
-        this.pageInfo = pageInfo;
-        this.pageTitle = this.pageInfo.title.rendered;
-        this.pageContent = this.pageInfo.content.rendered;
+        this.pageContent = pageInfo['content']['rendered'];
+        this.pageTitle = pageInfo['title']['rendered'];
       });
   }
 
   // WIP - contact form POST to API
   contactFormSubmit() {
     this.formInfo = "name=" + this.contactForm.value.fullName + "&email=" + this.contactForm.value.emailAddress + "&phone=" + this.contactForm.value.phoneNumber + "&message=" + this.contactForm.value.message;
-    //console.log(this.formInfo);
     this.http.post("http://api.havokbikepark.com/wp-json/ccf/v1/forms/93", this.formInfo).subscribe((data) => {});
   }
 

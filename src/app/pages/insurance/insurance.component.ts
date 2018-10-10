@@ -8,18 +8,14 @@ import { ApiConnections }    from '../../services/api-connections.service';
 })
 export class InsuranceComponent implements OnInit {
 
-  public insuranceInfo;
-  public pageTitle;
-  public mainCopy;
-  public personalMainInfo;
-  public personalTicklist;
+  public equipmentCTA;
   public equipmentMainInfo;
   public equipmentTicklist;
+  public mainCopy;
+  public pageTitle;
   public personalCTA;
-  public equipmentCTA;
-  public featuredImage;
-  public media;
-  public source;
+  public personalMainInfo;
+  public personalTicklist;
 
   constructor(
     private apiConnections: ApiConnections,
@@ -33,25 +29,14 @@ export class InsuranceComponent implements OnInit {
     // Get page info from API
     this.apiConnections.getPage(32)
       .subscribe(insurance => {
-        this.insuranceInfo = insurance;
-        this.pageTitle = this.insuranceInfo["title"]["rendered"];
-        this.mainCopy = this.insuranceInfo["content"]["rendered"];
-        this.personalMainInfo = this.insuranceInfo["acf"]["personal_main_info"];
-        this.personalTicklist = this.insuranceInfo["acf"]["personal_ticklist"];
-        this.personalCTA = this.insuranceInfo["acf"]["personal_cta_image"];
-
-        this.equipmentMainInfo = this.insuranceInfo["acf"]["equipment_main_info"];
-        this.equipmentTicklist = this.insuranceInfo["acf"]["equipment_ticklist"];
-        this.equipmentCTA = this.insuranceInfo["acf"]["equipment_cta_image"];
-
-        this.featuredImage = this.insuranceInfo["featured_media"];
-
-        this.apiConnections.getMedia(this.featuredImage)
-          .subscribe(media => {
-            this.media = media;
-            this.source = this.media["source_url"];
-          });
+        this.equipmentCTA = insurance['acf']['equipment_cta_image'];
+        this.equipmentMainInfo = insurance['acf']['equipment_main_info'];
+        this.equipmentTicklist = insurance['acf']['equipment_ticklist'];
+        this.mainCopy = insurance['content']['rendered'];
+        this.pageTitle = insurance['title']['rendered'];
+        this.personalCTA = insurance['acf']['personal_cta_image'];
+        this.personalMainInfo = insurance['acf']['personal_main_info'];
+        this.personalTicklist = insurance['acf']['personal_ticklist'];
       });
   }
-
 }
