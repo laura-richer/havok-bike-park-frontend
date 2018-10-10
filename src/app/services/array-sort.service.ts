@@ -3,9 +3,9 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class ArraySort {
 
+  public currentDate;
   public eventsAll: any;
   public eventsUnordered: any;
-  public currentDate;
   public newDate;
 
   constructor() {

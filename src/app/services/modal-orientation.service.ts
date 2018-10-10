@@ -4,8 +4,8 @@ import { Injectable } from '@angular/core';
 export class ModalOrientation {
 
   private createArray;
-  private mediaWidth;
   private mediaHeight;
+  private mediaWidth;
   public position;
 
   constructor() {}
