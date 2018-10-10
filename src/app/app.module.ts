@@ -4,7 +4,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule }                 from '@angular/common/http';
 import { AgmCoreModule }                    from '@agm/core';
 
-
 // Core Components
 import { AppComponent }     from './app.component';
 import { AppRoutingModule } from './app-routing.module';

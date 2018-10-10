@@ -15,7 +15,7 @@ export class MediaComponent implements OnInit {
   public media: any;
   public mediaSorted: any;
   public fbAPI: string = 'https://graph.facebook.com/';
-  public apiKey: string = 'EAAGZBsrRFgEABALZCXl9xfuDCJgG1wQvZAsli5iDkUC5JrMx0J7ejc3BwRlWSdldft5Y13TqnBmUHmg1P5hQTc5TIbS9KrEQCO3ggk3OsQeSgcLr6RUdqPnKNGWWTYp4sfUyKJX56AXiHlNVkJJTVzTBsJxt0UZD';
+  public apiKey: string = 'EAAGZBsrRFgEABAAVKcelp8V5iXtuUFTr3itSRstvcT5TvU9ZCH7mVvDA3yRnEzwJfrhN2BjlBLLZBN1WxgG1mGWDJDD0xxVUkb8NE2ZAr9hzcFkdegv2GVvzadcQZBBqdST42Flhh3r8nNGPIaUjPIfd9fNyEhIAMmZB1PyEynlgZDZD';
 
   public modalShow: boolean = false;
   public modalAnimate: boolean = false;
