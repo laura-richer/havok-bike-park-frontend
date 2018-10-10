@@ -10,18 +10,20 @@ import { ModalOrientation }  from '../../services/modal-orientation.service';
 })
 export class MediaComponent implements OnInit {
 
+  // Facebook vars
+  public apiKey: string = 'EAAGZBsrRFgEABAAVKcelp8V5iXtuUFTr3itSRstvcT5TvU9ZCH7mVvDA3yRnEzwJfrhN2BjlBLLZBN1WxgG1mGWDJDD0xxVUkb8NE2ZAr9hzcFkdegv2GVvzadcQZBBqdST42Flhh3r8nNGPIaUjPIfd9fNyEhIAMmZB1PyEynlgZDZD';
+  public fbAPI: string = 'https://graph.facebook.com/';
   public facebookPhotos;
   public facebookVideos;
   public media: any;
   public mediaSorted: any;
-  public fbAPI: string = 'https://graph.facebook.com/';
-  public apiKey: string = 'EAAGZBsrRFgEABAAVKcelp8V5iXtuUFTr3itSRstvcT5TvU9ZCH7mVvDA3yRnEzwJfrhN2BjlBLLZBN1WxgG1mGWDJDD0xxVUkb8NE2ZAr9hzcFkdegv2GVvzadcQZBBqdST42Flhh3r8nNGPIaUjPIfd9fNyEhIAMmZB1PyEynlgZDZD';
 
-  public modalShow: boolean = false;
+  // Modal vars
+  public embedHtml;
   public modalAnimate: boolean = false;
+  public modalShow: boolean = false;
   public modalSrc;
   public modalType;
-  public embedHtml;
 
   // Modal sizing
   public mediaHeight: any;
@@ -45,11 +47,10 @@ export class MediaComponent implements OnInit {
     this.titleService.setTitle('Media | Havok Bike Park');
 
     // get 25 latest facebook images
-    this.apiConnections.getFacebookList("photos?type=uploaded&access_token=")
+    this.apiConnections.getFacebookList('photos?type=uploaded&access_token=')
       .subscribe(facebookPhotos => {
 
-        this.facebookPhotos = facebookPhotos;
-        this.facebookPhotos = this.facebookPhotos.data;
+        this.facebookPhotos = facebookPhotos['data'];
 
         // Add to generic media array
         for (var i = 0; i < this.facebookPhotos.length; i++) {
@@ -60,14 +61,15 @@ export class MediaComponent implements OnInit {
             'type':'photo'
           });
         }
-      });
+      },
+      error => console.log(error),
+      () => this.getVideos());
+  }
 
-    // get 25 latest facebook Videos
-    setTimeout(() =>
-      this.apiConnections.getFacebookList("videos?access_token=")
+  getVideos() {
+    this.apiConnections.getFacebookList('videos?access_token=')
       .subscribe(facebookVideos => {
-        this.facebookVideos = facebookVideos;
-        this.facebookVideos = this.facebookVideos.data;
+        this.facebookVideos = facebookVideos['data'];
 
         // Add to generic media array
         for (var i = 0; i < this.facebookVideos.length; i++) {
@@ -78,12 +80,10 @@ export class MediaComponent implements OnInit {
             'type':'video'
           });
         }
-      })
-    , 100);
+      });
 
-    // Sort array and order by latest first
-    setTimeout(() => this.mediaSorted = this.media.sort(this.sortNumber), 300);
-    setTimeout(() => this.mediaSorted = this.mediaSorted.reverse(), 310);
+    setTimeout(() => this.mediaSorted = this.media.sort(this.sortNumber), 500);
+    setTimeout(() => this.mediaSorted = this.mediaSorted.reverse(), 510);
   }
 
   // Sort by date order
