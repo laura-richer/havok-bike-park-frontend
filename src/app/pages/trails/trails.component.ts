@@ -10,14 +10,13 @@ import { Observable }                from 'rxjs/Rx';
 export class TrailsComponent implements OnInit {
 
   // Content vars
-  public trails;
   public trailInfo;
   public trailMap;
 
   // Equal height vars
-  public maxHeightName;
-  public findClass;
   public currheightName;
+  public findClass;
+  public maxHeightName;
   public windowWidth: number;
 
   constructor(
@@ -42,9 +41,8 @@ export class TrailsComponent implements OnInit {
     // Get page info from API
     this.apiConnections.getPage(11)
       .subscribe(trails => {
-        this.trails = trails;
-        this.trailInfo = this.trails["acf"]["trail_info"];
-        this.trailMap = this.trails["acf"]["trail_map"]
+        this.trailInfo = trails["acf"]["trail_info"];
+        this.trailMap = trails["acf"]["trail_map"]
       });
   }
 
