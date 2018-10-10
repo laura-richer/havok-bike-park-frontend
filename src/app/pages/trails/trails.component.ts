@@ -25,12 +25,18 @@ export class TrailsComponent implements OnInit {
     private titleService: Title) {}
 
   ngOnInit() {
+    // Get initial window size
+    this.windowWidth = window.innerWidth;
+
+    // And after resize
+    Observable.fromEvent(window, 'resize')
+      .debounceTime(100)
+      .subscribe((e: Event) => {
+        this.getWindowWidth(e);
+    });
 
     // Set meta title
     this.titleService.setTitle('Trails | Havok Bike Park');
-
-    // Get initial window size
-    this.windowWidth = window.innerWidth;
 
     // Get page info from API
     this.apiConnections.getPage(11)
@@ -41,20 +47,7 @@ export class TrailsComponent implements OnInit {
       });
   }
 
-  // Trigger equal height stuff after view has built
-  ngAfterViewInit() {
-
-    // Get initial window size
-    this.windowWidth = window.innerWidth;
-
-    // And after resize
-    Observable.fromEvent(window, 'resize')
-      .debounceTime(100)
-      .subscribe((e: Event) => {
-        this.getWindowWidth(e);
-    });
-  }
-
+  // After DOM has loaded
   ngAfterContentChecked() {
     this.equalHeight();
   }
