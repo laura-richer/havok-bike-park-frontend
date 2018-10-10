@@ -10,16 +10,18 @@ import { MediaComponent }       from './pages/media/media.component';
 import { ContactComponent }     from './pages/contact/contact.component';
 import { MembershipComponent }  from './pages/membership/membership.component';
 import { InsuranceComponent }   from './pages/insurance/insurance.component';
+import { PrivacyComponent }     from './pages/privacy-policy/privacy-policy.component';
 
 const routes: Routes = [
-  { path: '',           component: HomeComponent },
-  { path: 'events',     component: EventsComponent },
-  { path: 'park-info',  component: InfoComponent },
-  { path: 'trails',     component: TrailsComponent },
-  { path: 'media',      component: MediaComponent },
-  { path: 'contact',    component: ContactComponent },
-  { path: 'membership', component: MembershipComponent },
-  { path: 'insurance',  component: InsuranceComponent },
+  { path: '',               component: HomeComponent },
+  { path: 'events',         component: EventsComponent },
+  { path: 'park-info',      component: InfoComponent },
+  { path: 'trails',         component: TrailsComponent },
+  { path: 'media',          component: MediaComponent },
+  { path: 'contact',        component: ContactComponent },
+  { path: 'membership',     component: MembershipComponent },
+  { path: 'insurance',      component: InsuranceComponent },
+  { path: 'privacy-policy', component: PrivacyComponent },
 ];
 
 @NgModule({

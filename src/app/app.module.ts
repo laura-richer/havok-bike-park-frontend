@@ -31,6 +31,7 @@ import { InsuranceComponent }  from './pages/insurance/insurance.component';
 import { MediaComponent }      from './pages/media/media.component';
 import { MembershipComponent } from './pages/membership/membership.component';
 import { TrailsComponent }     from './pages/trails/trails.component';
+import { PrivacyComponent }     from './pages/privacy-policy/privacy-policy.component';
 
 import { FooterComponent }       from './global/footer/footer.component';
 import { FooterImagesComponent } from './global/footer-images/footer-images.component';
@@ -52,7 +53,8 @@ import { UserNavComponent }      from './global/user-nav/user-nav.component';
     MediaComponent,
     MembershipComponent,
     TrailsComponent,
-    UserNavComponent
+    UserNavComponent,
+    PrivacyComponent
   ],
   imports: [
     BrowserModule,
