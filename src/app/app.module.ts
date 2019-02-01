@@ -8,6 +8,7 @@ import { AgmCoreModule }                    from '@agm/core';
 import { AppComponent }     from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MasonryModule }    from '../../node_modules/angular2-masonry';
+import { GraphQLModule }    from './apollo.config';
 
 // Services
 import { ApiConnections }    from './services/api-connections.service';
@@ -60,6 +61,7 @@ import { UserNavComponent }      from './global/user-nav/user-nav.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    GraphQLModule,
     MasonryModule,
     ReactiveFormsModule,
     AgmCoreModule.forRoot({
