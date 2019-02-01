@@ -7,6 +7,8 @@ Run `npm install -g @angular/cli` if install is needed
 
 ## Build Project
 
+Use node v `8.8.0`
+
 Run `npm install`
 
 ## Development server
