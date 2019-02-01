@@ -10,15 +10,15 @@
 
     <div am-row="about">
       <div am-col="sm-12 lg-7" am-offset="lg-2">
-        <div am-col="sm-12 md-10" *ngIf="about" [innerHTML]="about | keepHtml">
+        <div am-col="sm-12 md-10" *ngIf="about?.content.rendered" [innerHTML]="about?.content.rendered | keepHtml">
         </div>
       </div>
 
       <div am-parallax="image-1" id="parallax-image-1" am-visible="md lg xl" am-col="md-4 lg-4 xl-3">
-        <img src="{{ aboutImage1 }}" />
+        <img src="{{ about?.acf.about_image_1 }}" />
       </div>
       <div am-parallax="image-2" id="parallax-image-2" am-visible="md lg xl" am-col="md-3 lg-2">
-        <img src="{{ aboutImage2 }}" />
+        <img src="{{ about?.acf.about_image_2 }}" />
       </div>
     </div>
   </div>

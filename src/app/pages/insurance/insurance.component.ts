@@ -9,17 +9,6 @@ import { ApiConnections }    from '../../services/api-connections.service';
 export class InsuranceComponent implements OnInit {
 
   public insuranceInfo;
-  public pageTitle;
-  public mainCopy;
-  public personalMainInfo;
-  public personalTicklist;
-  public equipmentMainInfo;
-  public equipmentTicklist;
-  public personalCTA;
-  public equipmentCTA;
-  public featuredImage;
-  public media;
-  public source;
 
   constructor(
     private apiConnections: ApiConnections,
@@ -34,23 +23,6 @@ export class InsuranceComponent implements OnInit {
     this.apiConnections.getPage(32)
       .subscribe(insurance => {
         this.insuranceInfo = insurance;
-        this.pageTitle = this.insuranceInfo["title"]["rendered"];
-        this.mainCopy = this.insuranceInfo["content"]["rendered"];
-        this.personalMainInfo = this.insuranceInfo["acf"]["personal_main_info"];
-        this.personalTicklist = this.insuranceInfo["acf"]["personal_ticklist"];
-        this.personalCTA = this.insuranceInfo["acf"]["personal_cta_image"];
-
-        this.equipmentMainInfo = this.insuranceInfo["acf"]["equipment_main_info"];
-        this.equipmentTicklist = this.insuranceInfo["acf"]["equipment_ticklist"];
-        this.equipmentCTA = this.insuranceInfo["acf"]["equipment_cta_image"];
-
-        this.featuredImage = this.insuranceInfo["featured_media"];
-
-        this.apiConnections.getMedia(this.featuredImage)
-          .subscribe(media => {
-            this.media = media;
-            this.source = this.media["source_url"];
-          });
       });
   }
 

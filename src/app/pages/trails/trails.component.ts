@@ -10,8 +10,6 @@ import { Observable }                from 'rxjs/Rx';
 export class TrailsComponent implements OnInit {
 
   public trails;
-  public trailInfo;
-  public trailMap;
 
   // Equal height vars
   public maxHeightName;
@@ -36,9 +34,6 @@ export class TrailsComponent implements OnInit {
     this.apiConnections.getPage(11)
       .subscribe(trails => {
         this.trails = trails;
-        this.trailInfo = this.trails["acf"]["trail_info"];
-        this.trailMap = this.trails["acf"]["trail_map"]
-
         setTimeout(() => this.equalHeight(), 100);
       });
   }

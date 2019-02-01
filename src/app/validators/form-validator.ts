@@ -11,6 +11,6 @@ export class FormValidator {
       return null;
     }
 
-    return {"invalidEmail": true};
+    return { 'invalidEmail' : true };
   }
 }

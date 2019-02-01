@@ -2,7 +2,7 @@
   <div am-container>
     <div am-row>
       <div am-col="sm-12" am-align="center">
-        <h2 am-title>{{ pageTitle }}</h2>
+        <h2 am-title>{{ pageInfo?.title.rendered }}</h2>
       </div>
 
       <div am-col="sm-12" am-align="center" *ngIf="eventsAll.length <= 0">

@@ -5,27 +5,27 @@
   <div am-container>
     <div am-row>
       <div am-col="sm-12" am-align="center">
-        <h2 am-title>{{ pageTitle }}</h2>
+        <h2 am-title>{{ pageInfo?.title.rendered }}</h2>
       </div>
 
-      <div *ngIf="openingTimes" am-park-info am-col="sm-12" am-align="center">
+      <div *ngIf="parkData?.opening_times" am-park-info am-col="sm-12" am-align="center">
         <h4>Opening Times</h4>
-        <p>{{ openingTimes }}</p>
+        <p>{{ parkData?.opening_times }}</p>
       </div>
 
-      <div am-park-info am-col="sm-12" am-align="center" *ngIf="prices">
+      <div am-park-info am-col="sm-12" am-align="center" *ngIf="parkData?.membership_prices">
         <h4>Prices</h4>
-        <div [innerHTML]="prices | keepHtml"></div>
+        <div [innerHTML]="parkData?.membership_prices | keepHtml"></div>
 
         <p>Find out more about a <a routerLink="/membership" am-color="dark" am-hover="color light">membership</a>.</p>
       </div>
 
-      <div *ngIf="address" am-park-info am-col="sm-12" am-align="center">
+      <div *ngIf="parkData?.location_address" am-park-info am-col="sm-12" am-align="center">
         <h4>Details</h4>
         <div
-          *ngIf="address"
-          [innerHTML]="address | keepHtml"></div>
-        <p><a href="mailto:{{ emailAddress }}" am-color="dark" am-hover="color light">{{ emailAddress }}</a></p>
+          *ngIf="parkData?.location_address"
+          [innerHTML]="parkData?.location_address | keepHtml"></div>
+        <p><a href="mailto:{{ parkData?.email_address }}" am-color="dark" am-hover="color light">{{ parkData?.email_address }}</a></p>
       </div>
     </div>
   </div>

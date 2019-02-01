@@ -9,11 +9,6 @@ import { ApiConnections }    from '../../services/api-connections.service';
 export class MembershipComponent implements OnInit {
 
   public membership;
-  public pageTitle;
-  public mainCopy;
-  public subParagraph;
-  public benefits;
-  public benefitsIntro;
 
   constructor(
     private apiConnections: ApiConnections,
@@ -28,11 +23,6 @@ export class MembershipComponent implements OnInit {
     this.apiConnections.getPage(30)
       .subscribe(membership => {
         this.membership = membership;
-        this.pageTitle = membership["title"]["rendered"];
-        this.mainCopy = membership["content"]["rendered"];
-        this.subParagraph = membership["acf"]["sub_paragraph"];
-        this.benefits = membership["acf"]["benefits"];
-        this.benefitsIntro = membership["acf"]["benefits_intro"];
       });
   }
 
