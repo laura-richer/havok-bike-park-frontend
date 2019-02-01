@@ -8,7 +8,7 @@
 
             {{ footerNavItem.title }}
 
-            <span *ngIf="footerNavItem.title == 'Opening Hours'">{{ openingTimes }}</span>
+            <span *ngIf="footerNavItem.title == 'Opening Hours'">{{ footerData?.opening_times }}</span>
           </a>
         </li>
       </ul>
@@ -19,15 +19,14 @@
         <li>
           <a
             am-hover="color light"
-            href="{{ facebookLink }}" target="blank">
-
+            href="{{ footerData?.facebook_page }}" target="blank">
             <i class="fa fa-facebook" aria-hidden="true"></i>
           </a>
         </li>
         <li>
           <a
             am-hover="color light"
-            href="{{ instagramLink }}" target="blank">
+            href="{{ footerData?.instagram_page }}" target="blank">
 
             <i class="fa fa-instagram" aria-hidden="true"></i>
           </a>

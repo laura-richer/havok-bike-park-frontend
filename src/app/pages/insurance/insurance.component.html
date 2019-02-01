@@ -4,14 +4,14 @@
   <div am-container>
     <div am-row>
       <div am-col="sm-12" am-align="center">
-        <h2 am-title>{{ pageTitle }}</h2>
+        <h2 am-title>{{ insuranceInfo?.title.rendered }}</h2>
       </div>
     </div>
 
     <div am-row am-insurance="row">
       <div am-col="sm-12 md-7">
         <h3>Cover yourself...</h3>
-        <div am-insurance="block" *ngFor="let block of personalMainInfo">
+        <div am-insurance="block" *ngFor="let block of insuranceInfo?.acf.personal_main_info">
           <h4>{{ block.title }}</h4>
           <div *ngIf="block.text" [innerHTML]="block.text | keepHtml"></div>
         </div>
@@ -30,12 +30,12 @@
         <h3>&nbsp;</h3>
         <div am-insurance="block">
           <ul>
-            <li *ngFor="let block of personalTicklist">
+            <li *ngFor="let block of insuranceInfo?.acf.personal_ticklist">
               <i class="fa fa-check" aria-hidden="true"></i>{{ block.bullet_point }}
             </li>
           </ul>
 
-          <img src="{{ personalCTA }}" alt="Personal injury insurance" title="Personal injury insurance"/>
+          <img src="{{ insuranceInfo?.acf.personal_cta_image }}" alt="Personal injury insurance" title="Personal injury insurance"/>
         </div>
 
         <a
@@ -52,7 +52,7 @@
     <div am-row am-insurance="row">
       <div am-col="sm-12 md-7">
         <h3>Cover your bike &amp; gear...</h3>
-        <div am-insurance="block" *ngFor="let block of equipmentMainInfo">
+        <div am-insurance="block" *ngFor="let block of insuranceInfo?.acf.equipment_main_info">
           <h4>{{ block.title }}</h4>
           <div *ngIf="block.text" [innerHTML]="block.text | keepHtml"></div>
         </div>
@@ -71,12 +71,12 @@
         <h3>&nbsp;</h3>
         <div am-insurance="block">
           <ul>
-            <li *ngFor="let block of equipmentTicklist">
+            <li *ngFor="let block of insuranceInfo?.acf.equipment_ticklist">
               <i class="fa fa-check" aria-hidden="true"></i>{{ block.bullet_point }}
             </li>
           </ul>
 
-          <img src="{{ equipmentCTA }}" alt="Bike &amp; Equipment insurance" title="Bike &amp; Equipment insurance"/>
+          <img src="{{ insuranceInfo?.acf.equipment_cta_image }}" alt="Bike &amp; Equipment insurance" title="Bike &amp; Equipment insurance"/>
         </div>
 
         <a
@@ -96,8 +96,8 @@
         am-font="small"
         am-col="sm-12 md-8"
         am-push="md-2"
-        *ngIf="mainCopy"
-        [innerHTML]="mainCopy | keepHtml">
+        *ngIf="insuranceInfo?.content.rendered"
+        [innerHTML]="insuranceInfo?.content.rendered | keepHtml">
       </div>
       <div am-col="sm-12" am-align="center">
         <a href="http://link.monsterinsurance.co.uk/HavokBP" target="blank">

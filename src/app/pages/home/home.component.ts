@@ -11,8 +11,6 @@ import { ArraySort }                               from '../../services/array-so
 export class HomeComponent implements OnInit {
 
   public about;
-  public aboutImage1;
-  public aboutImage2;
   public eventsAll;
   public eventsUnordered;
   public eventsOrdered;
@@ -41,15 +39,13 @@ export class HomeComponent implements OnInit {
     // Get page info from API
     this.apiConnections.getPage(5)
       .subscribe(about => {
-        this.about = about["content"]["rendered"];
-        this.aboutImage1 = about["acf"]["about_image_1"];
-        this.aboutImage2 = about["acf"]["about_image_2"];
+        this.about = about;
       });
 
     // Get events from facebook
-    this.apiConnections.getFacebookList("events?access_token=")
+    this.apiConnections.getFacebookList('events?access_token=')
       .subscribe(events => {
-        this.eventsAll = events["data"];
+        this.eventsAll = events['data'];
 
         // Remove past events
         this.arraySort.removePastDates(this.eventsAll);
@@ -71,11 +67,11 @@ export class HomeComponent implements OnInit {
         .subscribe(singleEvent => {
 
           this.eventsUnordered.push({
-            'id': singleEvent["id"],
-            'start_time': singleEvent["start_time"],
-            'description': singleEvent["description"],
-            'name': singleEvent["name"],
-            'cover_image': singleEvent["cover"]["source"]
+            'id': singleEvent['id'],
+            'start_time': singleEvent['start_time'],
+            'description': singleEvent['description'],
+            'name': singleEvent['name'],
+            'cover_image': singleEvent['cover']['source']
           });
         });
     }

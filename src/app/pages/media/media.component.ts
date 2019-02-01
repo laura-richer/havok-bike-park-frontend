@@ -45,7 +45,7 @@ export class MediaComponent implements OnInit {
     this.titleService.setTitle('Media | Havok Bike Park');
 
     // get 25 latest facebook images
-    this.apiConnections.getFacebookList("photos?type=uploaded&access_token=")
+    this.apiConnections.getFacebookList('photos?type=uploaded&access_token=')
       .subscribe(facebookPhotos => {
 
         this.facebookPhotos = facebookPhotos;
@@ -64,7 +64,7 @@ export class MediaComponent implements OnInit {
 
     // get 25 latest facebook Videos
     setTimeout(() =>
-      this.apiConnections.getFacebookList("videos?access_token=")
+      this.apiConnections.getFacebookList('videos?access_token=')
       .subscribe(facebookVideos => {
         this.facebookVideos = facebookVideos;
         this.facebookVideos = this.facebookVideos.data;

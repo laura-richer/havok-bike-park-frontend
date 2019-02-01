@@ -1,8 +1,8 @@
-<img src="{{ trailMap }}" />
+<img src="{{ trails?.acf.trail_map }}" />
 <div am-section="trails" am-bg="white">
   <div am-container>
     <div am-row>
-      <div am-col="sm-12 md-6 lg-4" am-trail *ngFor="let trail of trailInfo" class="equalize">
+      <div am-col="sm-12 md-6 lg-4" am-trail *ngFor="let trail of trails?.acf.trail_info" class="equalize">
         <h3 am-subtitle>{{ trail.trail_name }}</h3>
         <p>{{ trail.trail_grade }}</p>
         <div

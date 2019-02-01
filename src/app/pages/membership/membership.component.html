@@ -2,17 +2,17 @@
   <div am-container>
     <div am-row>
       <div am-col="sm-12" am-align="center">
-        <h2 am-title>{{ pageTitle }}</h2>
+        <h2 am-title>{{ membership?.title.rendered }}</h2>
       </div>
     </div>
 
     <div am-row>
       <div
-        *ngIf="mainCopy"
+        *ngIf="membership?.content.rendered"
         am-col="sm=12 lg-8"
         am-push="lg-2"
         am-align="center"
-        [innerHTML]="mainCopy | keepHtml">
+        [innerHTML]="membership?.content.rendered | keepHtml">
       </div>
     </div>
 
@@ -22,13 +22,13 @@
         am-push="md-2 lg-3"
         am-align="left">
 
-        <div am-park-info *ngIf="benefitsIntro">
+        <div am-park-info *ngIf="membership?.acf.benefits_intro">
           <h4 am-align="center">Membership Benefits</h4>
 
-          <div [innerHTML]="benefitsIntro | keepHtml"></div>
+          <div [innerHTML]="membership?.acf.benefits_intro | keepHtml"></div>
 
           <ul am-list>
-            <li *ngFor="let benefit of benefits"><span [innerHTML]="benefit.benefit_point | keepHtml"></span></li>
+            <li *ngFor="let benefit of membership?.acf.benefits"><span [innerHTML]="benefit.benefit_point | keepHtml"></span></li>
           </ul>
         </div>
       </div>
@@ -36,11 +36,11 @@
 
     <div am-row>
       <div
-        *ngIf="subParagraph"
+        *ngIf="membership?.acf.sub_paragraph"
         am-col="sm=12 lg-8"
         am-push="lg-2"
         am-align="center"
-        [innerHTML]="subParagraph | keepHtml">
+        [innerHTML]="membership?.acf.sub_paragraph | keepHtml">
       </div>
     </div>
   </div>

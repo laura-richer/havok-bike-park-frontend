@@ -14,7 +14,6 @@ export class EventsComponent implements OnInit {
   public eventsUnordered;
   public eventsOrdered;
   public pageInfo;
-  public pageTitle: string;
 
 
   constructor(
@@ -37,13 +36,12 @@ export class EventsComponent implements OnInit {
     this.apiConnections.getPage(7)
       .subscribe(pageInfo => {
         this.pageInfo = pageInfo;
-        this.pageTitle = this.pageInfo.title.rendered
       });
 
     // Get events from facebook
-    this.apiConnections.getFacebookList("events?access_token=")
+    this.apiConnections.getFacebookList('events?access_token=')
       .subscribe(events => {
-        this.eventsAll = events["data"];
+        this.eventsAll = events['data'];
 
         // Remove past events
         this.arraySort.removePastDates(this.eventsAll);
@@ -64,11 +62,11 @@ export class EventsComponent implements OnInit {
       this.apiConnections.getFacebookSingleEvent(this.eventsAll[i].id)
         .subscribe(singleEvent => {
           this.eventsUnordered.push({
-            'id': singleEvent["id"],
-            'start_time': singleEvent["start_time"],
-            'description': singleEvent["description"],
-            'name': singleEvent["name"],
-            'cover_image': singleEvent["cover"]["source"]
+            'id': singleEvent['id'],
+            'start_time': singleEvent['start_time'],
+            'description': singleEvent['description'],
+            'name': singleEvent['name'],
+            'cover_image': singleEvent['cover']['source']
           });
         });
     }

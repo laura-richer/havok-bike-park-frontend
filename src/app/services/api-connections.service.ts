@@ -55,7 +55,7 @@ export class ApiConnections {
 
   // Get Facebook Photo
   getFacebookPhotoObject(id) {
-    return this.http.get(this.fbAPI + id + "/picture?access_token=" + this.apiKey);
+    return this.http.get(this.fbAPI + id + '/picture?access_token=' + this.apiKey);
   }
 
   // Get Facebook Video Thumbnail

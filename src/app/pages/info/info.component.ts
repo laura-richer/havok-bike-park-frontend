@@ -13,11 +13,7 @@ export class InfoComponent implements OnInit {
   public lng: number = -2.1534588;
 
   public pageInfo;
-  public pageTitle: string;
-  public openingTimes;
-  public prices;
-  public address;
-  public emailAddress;
+  public parkData;
 
   constructor(
     private apiConnections: ApiConnections,
@@ -32,16 +28,12 @@ export class InfoComponent implements OnInit {
     this.apiConnections.getPage(9)
       .subscribe(pageInfo => {
         this.pageInfo = pageInfo;
-        this.pageTitle = this.pageInfo.title.rendered;
       });
 
       // Get generic site info from API
      this.apiConnections.getACFOptions()
       .subscribe(acfData => {
-        this.openingTimes = acfData["acf"]["opening_times"];
-        this.prices = acfData["acf"]["membership_prices"];
-        this.address = acfData["acf"]["location_address"];
-        this.emailAddress = acfData["acf"]["email_address"];
+        this.parkData = acfData['acf'];
       });
   }
 
